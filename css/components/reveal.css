@@ -1,0 +1,29 @@
+﻿    /* ── Directional Scroll Reveal Animations ── */
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-up,
+    .reveal-pop {
+      opacity: 0;
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal { transform: translateY(32px); }
+    .reveal-left { transform: translateX(-70px); }
+    .reveal-right { transform: translateX(70px); }
+    .reveal-up { transform: translateY(48px) scale(0.96); }
+    .reveal-pop { transform: scale(0.86); }
+
+    .reveal.is-revealed,
+    .reveal-left.is-revealed,
+    .reveal-right.is-revealed,
+    .reveal-up.is-revealed,
+    .reveal-pop.is-revealed {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .reveal-left,
+      .reveal-right { transform: translateY(24px); }
+    }

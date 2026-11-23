@@ -1,0 +1,90 @@
+﻿/* ── Base Space Theme ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #E8ECFF;
+  background-color: #05060f;
+  background: radial-gradient(ellipse at 50% 15%, #0d1033 0%, #05060f 80%) no-repeat fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Global Typography & Contrast for Space Theme */
+.text-slate-900, h1, h2, h3, h4, .font-bold.text-slate-900 {
+  color: #FFFFFF !important;
+}
+.text-slate-800 {
+  color: #E8ECFF !important;
+}
+.text-slate-700, .text-slate-600 {
+  color: #B6BEE0 !important;
+}
+.text-slate-500, .text-slate-400 {
+  color: #8E9BC7 !important;
+}
+
+/* Accents & Section Dividers */
+.text-brand {
+  color: #67E8F9 !important;
+}
+.border-slate-200\/80,
+.border-slate-200\/90,
+.border-slate-200 {
+  border-color: rgba(148, 163, 255, 0.15) !important;
+}
+.bg-slate-200 {
+  background-color: rgba(148, 163, 255, 0.2) !important;
+}
+
+/* Header Glass */
+header {
+  background: rgba(5, 6, 15, 0.75) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border-bottom: 1px solid rgba(148, 163, 255, 0.15) !important;
+}
+header a span.text-slate-900 {
+  color: #E8ECFF !important;
+}
+
+/* Available for Work Pill */
+.bg-blue-50\/90 {
+  background: rgba(16, 19, 52, 0.65) !important;
+  border-color: rgba(103, 232, 249, 0.3) !important;
+  color: #67E8F9 !important;
+  box-shadow: 0 0 15px rgba(103, 232, 249, 0.2) !important;
+}
+
+/* Hover Accent Colors */
+a.hover\:text-brand:hover,
+.hover\:text-brand:hover {
+  color: #67E8F9 !important;
+}
+
+/* Email CTA Button in Space Theme */
+.email-cta-btn {
+  background: linear-gradient(135deg, #67E8F9 0%, #3B82F6 50%, #8B5CF6 100%) !important;
+  color: #05060F !important;
+  box-shadow: 0 0 25px rgba(103, 232, 249, 0.45) !important;
+  font-weight: 700 !important;
+}
+.email-cta-btn:hover {
+  box-shadow: 0 0 35px rgba(167, 139, 250, 0.65) !important;
+}
+
+/* Footer in Space Theme */
+footer {
+  background: transparent !important;
+  border-color: rgba(148, 163, 255, 0.15) !important;
+}
+
+/* Keyboard accessibility */
+*:focus-visible {
+  outline: 2px solid #67E8F9 !important;
+  outline-offset: 3px !important;
+}

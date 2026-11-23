@@ -1,0 +1,29 @@
+﻿/* ── Nav sliding underline ── */
+nav[aria-label="Main Navigation"] a {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 2px;
+  color: #B6BEE0;
+  transition: color 0.25s ease;
+}
+nav[aria-label="Main Navigation"] a:hover {
+  color: #67E8F9;
+}
+nav[aria-label="Main Navigation"] a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #67E8F9;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(103, 232, 249, 0.8);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+nav[aria-label="Main Navigation"] a:hover::after,
+nav[aria-label="Main Navigation"] a:focus-visible::after {
+  transform: scaleX(1);
+}

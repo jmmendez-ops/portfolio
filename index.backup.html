@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- REPLACE: Page Title -->
+  <title>John Paulo Mendez | Web/App Developer</title>
+  <meta name="description" content="Web/App Developer based in Calamba, Philippines. Building responsive websites, cross-platform mobile apps, and scalable backend solutions.">
+
+  <!-- Google Fonts: Poppins (400, 500, 600, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#1E7DFF',
+            ink: '#14161A',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ── Base ── */
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #1E293B;
+      background-color: #FFFFFF;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+    }
+
+    /* Keyboard accessibility */
+    *:focus-visible {
+      outline: 2px solid #1E7DFF !important;
+      outline-offset: 3px !important;
+    }
+
+    /* ── Directional Scroll Reveal Animations ── */
+    .reveal,
+    .reveal-left,
+    .reveal-right,
+    .reveal-up,
+    .reveal-pop {
+      opacity: 0;
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal { transform: translateY(32px); }
+    .reveal-left { transform: translateX(-70px); }
+    .reveal-right { transform: translateX(70px); }
+    .reveal-up { transform: translateY(48px) scale(0.96); }
+    .reveal-pop { transform: scale(0.86); }
+
+    .reveal.is-revealed,
+    .reveal-left.is-revealed,
+    .reveal-right.is-revealed,
+    .reveal-up.is-revealed,
+    .reveal-pop.is-revealed {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .reveal-left,
+      .reveal-right { transform: translateY(24px); }
+    }
+
+    /* ── Gradient heading container ── */
+    .gradient-text {
+      display: inline-block;
+    }
+
+    /* ── Continuous Ambient Flowing Background Waves ── */
+    .page-flowing-waves {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100vw; height: 100vh;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .flowing-wave {
+      position: absolute;
+      border-radius: 50%;
+      will-change: transform;
+      pointer-events: none;
+    }
+    .wave-stream-1 {
+      top: -20%; right: -20%;
+      width: 70vw; height: 70vh;
+      background: radial-gradient(ellipse at 50% 50%, rgba(30,125,255,0.08) 0%, rgba(6,182,212,0.05) 40%, transparent 70%);
+      filter: blur(85px);
+      animation: waveStreamFlow 16s ease-in-out infinite alternate;
+    }
+    .wave-stream-2 {
+      top: 45%; left: -20%;
+      width: 75vw; height: 75vh;
+      background: radial-gradient(ellipse at 45% 55%, rgba(139,92,246,0.07) 0%, rgba(99,102,241,0.04) 42%, transparent 70%);
+      filter: blur(90px);
+      animation: waveStreamFlowRev 20s ease-in-out infinite alternate;
+    }
+    .wave-stream-3 {
+      bottom: -15%; right: -10%;
+      width: 85vw; height: 75vh;
+      background: radial-gradient(circle at 50% 50%, rgba(6,182,212,0.07) 0%, rgba(30,125,255,0.04) 45%, transparent 70%);
+      filter: blur(85px);
+      animation: waveStreamFlow 22s ease-in-out infinite alternate;
+    }
+    .wave-stream-4 {
+      top: 50%; right: 5%;
+      width: 70vw; height: 70vh;
+      background: radial-gradient(ellipse at 50% 50%, rgba(59,130,246,0.06) 0%, rgba(147,51,234,0.04) 45%, transparent 70%);
+      filter: blur(85px);
+      animation: waveStreamFlowRev 18s ease-in-out infinite alternate;
+    }
+    .wave-stream-5 {
+      bottom: 5%; left: -10%;
+      width: 70vw; height: 65vh;
+      background: radial-gradient(circle at 50% 60%, rgba(30,125,255,0.07) 0%, rgba(6,182,212,0.05) 40%, transparent 70%);
+      filter: blur(85px);
+      animation: waveStreamFlow 19s ease-in-out infinite alternate;
+    }
+
+    @keyframes waveStreamFlow {
+      0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+      50%  { transform: translate(50px, 70px) scale(1.15) rotate(6deg); }
+      100% { transform: translate(-40px, -50px) scale(0.95) rotate(-4deg); }
+    }
+    @keyframes waveStreamFlowRev {
+      0%   { transform: translate(0, 0) scale(1) rotate(0deg); }
+      50%  { transform: translate(-60px, -60px) scale(1.18) rotate(-7deg); }
+      100% { transform: translate(45px, 55px) scale(0.92) rotate(5deg); }
+    }
+
+    /* ── Floating Badge Animations ── */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes floatRev {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+    .animate-float-slow { animation: floatSlow 5s ease-in-out infinite; }
+    .animate-float-rev { animation: floatRev 6s ease-in-out infinite; }
+
+    /* ── Nav sliding underline ── */
+    nav[aria-label="Main Navigation"] a {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 2px;
+    }
+    nav[aria-label="Main Navigation"] a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 100%; height: 2px;
+      background: #1E7DFF;
+      border-radius: 2px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    nav[aria-label="Main Navigation"] a:hover::after,
+    nav[aria-label="Main Navigation"] a:focus-visible::after { transform: scaleX(1); }
+
+    /* ── Tech stack icon — pop + float on hover ── */
+    ul[aria-label="Core technologies"] > li {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.35s ease;
+      cursor: default;
+    }
+    ul[aria-label="Core technologies"] > li:hover {
+      transform: translateY(-12px) rotate(-5deg) scale(1.22);
+      filter: drop-shadow(0 10px 18px rgba(30, 125, 255, 0.35));
+    }
+
+    /* ── Skill badge — alive bounce + colored glow ── */
+    .skill-badge {
+      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.32s ease,
+                  filter 0.32s ease;
+      cursor: default;
+      user-select: none;
+      will-change: transform;
+    }
+    .skill-badge:hover {
+      transform: translateY(-8px) scale(1.1);
+      box-shadow: 0 14px 28px rgba(30, 125, 255, 0.25);
+      filter: brightness(1.08);
+    }
+
+    /* ── Project image card enhanced hover ── */
+    .project-image-card {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+      background: #FFFFFF;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+    }
+    .project-image-card:hover {
+      transform: translateY(-8px) scale(1.015);
+      border-color: rgba(30, 125, 255, 0.5);
+      box-shadow: 0 25px 50px -12px rgba(30, 125, 255, 0.16), 0 0 20px rgba(30, 125, 255, 0.1);
+    }
+
+    /* ── Project tech tag pills hover ── */
+    .project-tech-tag {
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .project-tech-tag:hover {
+      background-color: #1E7DFF !important;
+      color: #ffffff !important;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(30, 125, 255, 0.35);
+    }
+
+    /* ── Section heading accent bar ── */
+    .heading-accent {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    .heading-accent::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 52px; height: 3px;
+      background: linear-gradient(90deg, #1E7DFF 0%, #60A5FA 60%, rgba(30,125,255,0) 100%);
+      border-radius: 2px;
+      box-shadow: 0 0 12px rgba(30, 125, 255, 0.4);
+    }
+
+    /* ── Hero H1 — interactive letter spring & rubber animation ── */
+    @keyframes rubberLetter {
+      0% {
+        transform: scale3d(1, 1, 1);
+      }
+      30% {
+        transform: scale3d(1.25, 0.75, 1) translateY(-6px);
+      }
+      40% {
+        transform: scale3d(0.75, 1.25, 1) translateY(-14px);
+      }
+      50% {
+        transform: scale3d(1.15, 0.85, 1) translateY(-8px);
+      }
+      65% {
+        transform: scale3d(0.95, 1.05, 1) translateY(-11px);
+      }
+      75% {
+        transform: scale3d(1.05, 0.95, 1) translateY(-9px);
+      }
+      100% {
+        transform: scale3d(1.18, 1.18, 1) translateY(-9px);
+      }
+    }
+
+    .interactive-letter {
+      display: inline-block;
+      position: relative;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease, filter 0.2s ease;
+      cursor: default;
+      transform-origin: bottom center;
+    }
+    .interactive-letter:hover {
+      animation: rubberLetter 0.65s ease both;
+      color: #1E7DFF !important;
+      -webkit-text-fill-color: #1E7DFF !important;
+      filter: drop-shadow(0 6px 18px rgba(30, 125, 255, 0.5));
+    }
+
+    /* ── Waving hand emoji animation ── */
+    .waving-hand {
+      display: inline-block;
+      transform-origin: 70% 70%;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .waving-hand:hover {
+      animation: waveHand 1.1s ease-in-out infinite;
+    }
+    @keyframes waveHand {
+      0% { transform: rotate(0deg); }
+      15% { transform: rotate(18deg) scale(1.25); }
+      30% { transform: rotate(-12deg) scale(1.25); }
+      45% { transform: rotate(18deg) scale(1.25); }
+      60% { transform: rotate(-8deg) scale(1.15); }
+      75% { transform: rotate(12deg) scale(1.1); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* ── Prefers-reduced-motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal,
+      .reveal-left,
+      .reveal-right,
+      .reveal-up,
+      .reveal-pop { opacity: 1 !important; transform: none !important; transition: none !important; }
+      .wavy-layer-1, .wavy-layer-2 { animation: none !important; border-radius: 50% !important; }
+      .project-image-card:hover,
+      .skill-badge:hover,
+      .interactive-letter:hover,
+      .waving-hand:hover { transform: none !important; box-shadow: none !important; filter: none !important; animation: none !important; }
+      ul[aria-label="Core technologies"] > li:hover { transform: none !important; filter: none !important; }
+      .hero-orb,
+      .paint-blast-1,
+      .paint-blast-2,
+      .paint-blast-3,
+      .paint-shockwave,
+      .paint-droplet,
+      .flowing-wave { animation: none !important; }
+      article div span[class*="bg-gray-100"]:hover { transform: none !important; }
+      nav[aria-label="Main Navigation"] a::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-brand selection:text-white relative min-h-screen overflow-x-hidden">
+
+  <!-- Continuous Full-Page Ambient Flowing Waves (Cascades from Hero to Footer) -->
+  <div class="page-flowing-waves" aria-hidden="true">
+    <div class="flowing-wave wave-stream-1"></div>
+    <div class="flowing-wave wave-stream-2"></div>
+    <div class="flowing-wave wave-stream-3"></div>
+    <div class="flowing-wave wave-stream-4"></div>
+    <div class="flowing-wave wave-stream-5"></div>
+  </div>
+
+  <!-- Accessible Skip to Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-lg focus:font-semibold focus:shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- ========================================================================= -->
+  <!-- HEADER                                                                    -->
+  <!-- ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 transition-all">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <!-- Brand Logo / Monogram on Mobile, Full Name on Desktop -->
+      <a href="#" class="font-bold text-base sm:text-xl tracking-tight text-slate-900 hover:text-brand transition-colors focus:rounded-md shrink-0">
+        <span class="hidden md:inline">John Paulo Mendez</span>
+        <span class="md:hidden font-extrabold tracking-tight text-brand">JPM<span class="text-slate-900 font-medium text-xs ml-1 tracking-normal">dev</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="flex items-center gap-2 sm:gap-7 text-xs sm:text-sm font-semibold text-slate-600">
+          <li>
+            <a href="#about" class="hover:text-brand transition-colors py-1 focus:rounded-md">About</a>
+          </li>
+          <li>
+            <a href="#projects" class="hover:text-brand transition-colors py-1 focus:rounded-md">Projects</a>
+          </li>
+          <li>
+            <a href="#skills" class="hover:text-brand transition-colors py-1 focus:rounded-md">Skills</a>
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-brand transition-colors py-1 focus:rounded-md">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTENT                                                              -->
+  <!-- ========================================================================= -->
+  <main id="main-content" class="pt-24 md:pt-32 relative z-10">
+
+    <!-- ======================================================================= -->
+    <!-- HERO SECTION                                                            -->
+    <!-- ======================================================================= -->
+    <section class="relative max-w-6xl mx-auto px-6 lg:px-8 pt-10 pb-20 md:py-28 overflow-hidden lg:overflow-visible" aria-label="Introduction">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Bio & Social Icons -->
+        <div class="reveal-left lg:col-span-7 flex flex-col items-start order-1 lg:order-1">
+          <!-- Eyebrow label -->
+          <span class="inline-flex items-center gap-2 text-brand font-semibold text-xs tracking-widest uppercase mb-5 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            Available for work
+          </span>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.15] select-none cursor-default isolate" aria-label="Web/App Developer">
+            <span class="block whitespace-nowrap">
+              <span class="gradient-text">
+                <span class="interactive-letter" aria-hidden="true">W</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">b</span><span class="interactive-letter" aria-hidden="true">/</span><span class="interactive-letter" aria-hidden="true">A</span><span class="interactive-letter" aria-hidden="true">p</span><span class="interactive-letter" aria-hidden="true">p</span>
+              </span>
+            </span>
+            <span class="block whitespace-nowrap mt-1">
+              <span class="gradient-text">
+                <span class="interactive-letter" aria-hidden="true">D</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">v</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">l</span><span class="interactive-letter" aria-hidden="true">o</span><span class="interactive-letter" aria-hidden="true">p</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">r</span>
+              </span>
+              <!-- Waving hand SVG icon in place of emoji -->
+              <span class="waving-hand inline-flex items-center justify-center ml-2 sm:ml-2.5 text-amber-500 align-middle cursor-pointer" aria-hidden="true" title="Hello!">
+                <svg class="w-8 h-8 sm:w-10 sm:h-10 text-amber-500 fill-amber-400 stroke-amber-600 stroke-[1.2] drop-shadow-sm" viewBox="0 0 24 24">
+                  <path d="M12.5 2c.83 0 1.5.67 1.5 1.5v6c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-6c0-.28-.22-.5-.5-.5s-.5.22-.5.5v6c0 .28-.22.5-.5.5s-.5-.22-.5-.5v-7c0-.28-.22-.5-.5-.5s-.5.22-.5.5v7c0 .28-.22.5-.5.5s-.5-.22-.5-.5V3.5c0-.83.67-1.5 1.5-1.5h1zm5 5.5c.83 0 1.5.67 1.5 1.5v3.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V9c0-.28-.22-.5-.5-.5s-.5.22-.5.5v3.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V9c0-.83.67-1.5 1.5-1.5h.5zM7.5 7c.83 0 1.5.67 1.5 1.5v5c0 3.31 2.69 6 6 6s6-2.69 6-6V9.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v3.5c0 .28-.22.5-.5.5s-.5-.22-.5-.5V3.5C11 2.67 10.33 2 9.5 2S8 2.67 8 3.5v8c0 .28-.22.5-.5.5s-.5-.22-.5-.5V8.5C7 7.67 7.67 7 8.5 7h-1zm-2 4c.83 0 1.5.67 1.5 1.5v2.5c0 4.42 3.58 8 8 8s8-3.58 8-8v-3.5c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v3.5c0 3.31-2.69 6-6 6s-6-2.69-6-6v-2.5c0-.83-.67-1.5-1.5-1.5H5.5z"/>
+                </svg>
+              </span>
+            </span>
+          </h1>
+          
+          <!-- Bio Text / Name / Location with SVG location pin -->
+          <p class="mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl">
+            Hi, I'm <span class="font-bold text-slate-900">John Paulo Mendez</span>. A passionate Web &amp; App Developer based in <span class="inline-flex items-center gap-1 font-semibold text-slate-900">Calamba, Philippines <svg class="w-4 h-4 text-brand inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>.
+          </p>
+
+          <!-- Social Links (Inline SVGs, 28px, hover brand blue, NO buttons) -->
+          <div class="flex items-center gap-5 mt-8" aria-label="Social Profiles">
+            <!-- LinkedIn URL -->
+            <a href="https://linkedin.com/in/johnpaulomendez" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand transition-colors p-1 -m-1 focus:rounded-md" aria-label="LinkedIn profile (opens in new tab)">
+              <!-- LinkedIn Simple Icon (28px) -->
+              <svg role="img" viewBox="0 0 24 24" width="28" height="28" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg">
+                <title>LinkedIn</title>
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+
+            <!-- GitHub URL -->
+            <a href="https://github.com/johnpaulomendez" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand transition-colors p-1 -m-1 focus:rounded-md" aria-label="GitHub profile (opens in new tab)">
+              <!-- GitHub Simple Icon (28px) -->
+              <svg role="img" viewBox="0 0 24 24" width="28" height="28" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg">
+                <title>GitHub</title>
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Modern JPM Avatar Centerpiece (Fixed & Perfectly Responsive) -->
+        <div class="reveal-right lg:col-span-5 flex justify-center items-center order-2 lg:order-2">
+          <!-- Outer Profile Container: perfectly centered, stable proportions, no viewport bleeding -->
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center select-none">
+            
+            <!-- Soft Ambient Glow Ring -->
+            <div class="absolute inset-2 sm:inset-4 rounded-full bg-gradient-to-tr from-blue-500/15 via-indigo-500/10 to-cyan-400/15 blur-2xl pointer-events-none" aria-hidden="true"></div>
+
+            <!-- Avatar Card Frame with Gradient Border Ring and 3D Tilt Hook -->
+            <div id="jpm-avatar-card" class="relative z-10 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 p-1.5 rounded-3xl bg-gradient-to-tr from-brand via-indigo-500 to-cyan-400 shadow-[0_20px_50px_rgba(30,125,255,0.18)] hover:shadow-[0_25px_60px_rgba(30,125,255,0.25)] transition-all duration-300 cursor-pointer group">
+              <!-- Inner White Surface -->
+              <div class="w-full h-full rounded-[22px] bg-white flex flex-col items-center justify-center relative overflow-hidden border border-slate-100">
+                <div class="absolute -top-12 -right-12 w-32 h-32 bg-blue-50 rounded-full blur-xl pointer-events-none"></div>
+                <div class="absolute -bottom-12 -left-12 w-32 h-32 bg-indigo-50 rounded-full blur-xl pointer-events-none"></div>
+
+                <!-- Initials "JPM" with popping gradient -->
+                <span class="text-6xl sm:text-7xl font-black tracking-tight bg-gradient-to-br from-slate-950 via-brand to-indigo-600 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
+                  JPM
+                </span>
+                <span class="mt-2 text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-brand transition-colors">
+                  Web &amp; App Dev
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech Stack Row Under the Two Columns -->
+      <div class="reveal-up mt-16 md:mt-24 pt-10 border-t border-slate-200/80 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+        <!-- Semi-bold Label with Vertical Divider (border-right) on Desktop -->
+        <div class="flex items-center gap-4">
+          <span class="font-semibold text-slate-900 text-base md:text-lg whitespace-nowrap">Tech Stack</span>
+          <div class="hidden md:block h-8 w-[2px] bg-slate-200 ml-4" aria-hidden="true"></div>
+        </div>
+
+        <!-- Tech Stack Icons in a Row (Official Simple Icons paths in brand colors) -->
+        <ul class="flex flex-wrap items-center justify-center gap-6 sm:gap-7" role="list" aria-label="Core technologies">
+          <!-- 1. Python #3776AB -->
+          <li class="flex items-center justify-center" title="Python">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Python</title>
+              <path fill="#3776AB" d="M11.858 0c-.978.005-1.913.088-2.736.234C6.7.662 6.26 1.558 6.26 3.21v2.182h5.725v.727H4.111c-1.664 0-3.121 1-3.577 2.903-.526 2.181-.549 3.542 0 5.82.407 1.694 1.379 2.902 3.043 2.902h1.969v-2.616c0-1.89 1.635-3.557 3.576-3.557h5.72c1.591 0 2.862-1.31 2.862-2.91v-5.45c0-1.553-1.309-2.718-2.863-2.977A18 18 0 0 0 11.858 0M8.762 1.755c.591 0 1.074.491 1.074 1.095 0 .601-.483 1.087-1.074 1.087A1.08 1.08 0 0 1 7.688 2.85c0-.604.48-1.095 1.074-1.095m9.656 4.364v2.543c0 1.971-1.671 3.63-3.577 3.63H9.122c-1.566 0-2.862 1.34-2.862 2.91v5.452c0 1.551 1.349 2.464 2.862 2.91 1.813.532 3.55.628 5.72 0 1.44-.418 2.862-1.258 2.862-2.91V18.47h-5.719v-.727h8.582c1.664 0 2.284-1.16 2.862-2.903.598-1.793.573-3.518 0-5.819-.41-1.656-1.196-2.903-2.862-2.903zm-3.216 13.807a1.08 1.08 0 0 1 1.074 1.088c0 .604-.48 1.094-1.074 1.094-.592 0-1.075-.49-1.075-1.094 0-.601.483-1.088 1.075-1.088"/>
+            </svg>
+          </li>
+
+          <!-- 2. TensorFlow #FF6F00 -->
+          <li class="flex items-center justify-center" title="TensorFlow">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>TensorFlow</title>
+              <path fill="#FF6F00" d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.31zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603l6.168 3.564z"/>
+            </svg>
+          </li>
+
+          <!-- 3. Flutter #02569B -->
+          <li class="flex items-center justify-center" title="Flutter">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Flutter</title>
+              <path fill="#02569B" d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/>
+            </svg>
+          </li>
+
+          <!-- 4. Dart #0175C2 -->
+          <li class="flex items-center justify-center" title="Dart">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Dart</title>
+              <path fill="#0175C2" d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/>
+            </svg>
+          </li>
+
+          <!-- 5. JavaScript (#F7DF1E Yellow Square with Black Letters) -->
+          <li class="flex items-center justify-center" title="JavaScript">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 rounded-sm transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>JavaScript</title>
+              <rect width="24" height="24" rx="2" fill="#F7DF1E"/>
+              <path fill="#000000" d="M22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+            </svg>
+          </li>
+
+          <!-- 6. HTML #E34F26 -->
+          <li class="flex items-center justify-center" title="HTML">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>HTML</title>
+              <path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+            </svg>
+          </li>
+
+          <!-- 7. CSS #1572B6 -->
+          <li class="flex items-center justify-center" title="CSS">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>CSS</title>
+              <path fill="#1572B6" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+            </svg>
+          </li>
+
+          <!-- 8. React #61DAFB -->
+          <li class="flex items-center justify-center" title="React">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>React</title>
+              <path fill="#61DAFB" d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/>
+            </svg>
+          </li>
+
+          <!-- 9. Node.js #5FA04E -->
+          <li class="flex items-center justify-center" title="Node.js">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Node.js</title>
+              <path fill="#5FA04E" d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/>
+            </svg>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- ABOUT SECTION (3-column grid)                                           -->
+    <!-- ======================================================================= -->
+    <section id="about" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="about-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+          
+          <!-- Column 1: Heading "About me" on the left -->
+          <div class="reveal-left md:col-span-1">
+            <h2 id="about-heading" class="heading-accent text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              About me
+            </h2>
+          </div>
+
+          <!-- Columns 2 & 3: Two short paragraphs on the right in a card -->
+          <div class="reveal-right md:col-span-2">
+            <div class="bg-slate-50/70 border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-sm space-y-5 text-slate-600 text-base sm:text-lg leading-relaxed">
+              <!-- Paragraph 1 -->
+              <p>
+                As a versatile Web &amp; App Developer, I specialize in crafting clean, high-performance web applications and cross-platform mobile solutions using React, Flutter, Node.js, and Python. My focus connects robust backend systems with seamless user interfaces.
+              </p>
+              <!-- Paragraph 2 -->
+              <p>
+                I thrive on turning complex problems into intuitive digital solutions, optimizing Core Web Vitals, and continuously adopting emerging web standards. My mission is to collaborate with forward-thinking teams to engineer polished digital experiences that elevate user engagement and product value.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- PROJECTS SECTION (Zigzag layout, 2 columns each)                        -->
+    <!-- ======================================================================= -->
+    <section id="projects" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="projects-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        
+        <!-- Header: Blue label & Main Heading -->
+        <div class="reveal-left mb-14 md:mb-20">
+          <p class="text-brand font-semibold text-sm tracking-wider uppercase mb-2">
+            PORTFOLIO
+          </p>
+          <h2 id="projects-heading" class="heading-accent text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+            Each project is a unique piece of development 🧩
+          </h2>
+        </div>
+
+        <!-- Project Rows List -->
+        <div class="space-y-20 md:space-y-28">
+
+          <!-- ----------------------------------------------------------------- -->
+          <!-- PROJECT 1: CAR RENTAL 🚗 (Image Left, Text Right)                  -->
+          <!-- ----------------------------------------------------------------- -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Image Column: 4:3 Aspect Ratio, Rounded-2xl, Hover Lift 6px -->
+            <div class="reveal-left lg:col-span-7 order-1">
+              <div class="project-image-card bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg shadow-slate-200/50 aspect-[4/3] relative">
+                <!-- REPLACE: To swap this SVG placeholder with a real image:
+                <img src="car-rental.jpg" alt="Car Rental Website Screenshot" class="w-full h-full object-cover rounded-2xl">
+                -->
+                <!-- Placeholder Inline SVG: Dark Modern Car Rental Landing Page with Red/Orange Accents -->
+                <svg viewBox="0 0 800 600" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Car Rental mock screenshot">
+                  <title>Car Rental Landing Page Mockup</title>
+                  <!-- Background -->
+                  <rect width="800" height="600" fill="#0B1120"/>
+                  
+                  <!-- Browser Window Frame Bar -->
+                  <rect width="800" height="42" fill="#0F172A"/>
+                  <line x1="0" y1="42" x2="800" y2="42" stroke="#1E293B" stroke-width="1"/>
+                  <circle cx="28" cy="21" r="5" fill="#EF4444"/>
+                  <circle cx="44" cy="21" r="5" fill="#F59E0B"/>
+                  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+                  <rect x="90" y="10" width="320" height="22" rx="4" fill="#1E293B"/>
+                  <text x="105" y="25" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">https://carrental-fleet.example.com</text>
+
+                  <!-- Page Header / Navbar -->
+                  <rect x="0" y="42" width="800" height="54" fill="#0D152A" opacity="0.95"/>
+                  <line x1="0" y1="96" x2="800" y2="96" stroke="#1E293B" stroke-width="1"/>
+                  <!-- Logo with Red Accent -->
+                  <circle cx="50" cy="69" r="14" fill="#FF4D30"/>
+                  <path d="M44 69 L48 64 L56 64 L58 69 Z" fill="#FFFFFF"/>
+                  <text x="74" y="74" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">CAR<tspan fill="#FF4D30">RENT</tspan></text>
+                  <!-- Nav Links -->
+                  <rect x="420" y="63" width="45" height="12" rx="3" fill="#64748B" opacity="0.5"/>
+                  <rect x="480" y="63" width="55" height="12" rx="3" fill="#64748B" opacity="0.5"/>
+                  <rect x="550" y="63" width="45" height="12" rx="3" fill="#64748B" opacity="0.5"/>
+                  <rect x="620" y="63" width="50" height="12" rx="3" fill="#64748B" opacity="0.5"/>
+                  <rect x="690" y="55" width="80" height="28" rx="6" fill="#FF4D30"/>
+                  <text x="712" y="73" font-family="Poppins, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Sign In</text>
+
+                  <!-- Hero Content Area -->
+                  <text x="50" y="150" font-family="Poppins, sans-serif" font-size="13" font-weight="700" fill="#FF4D30" letter-spacing="1.5">PLAN YOUR TRIP NOW</text>
+                  <text x="50" y="195" font-family="Poppins, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">Save <tspan fill="#FF4D30">big</tspan> with our</text>
+                  <text x="50" y="235" font-family="Poppins, sans-serif" font-size="32" font-weight="700" fill="#FFFFFF">car rental deals</text>
+                  <text x="50" y="268" font-family="system-ui, sans-serif" font-size="13" fill="#94A3B8">Rent the car of your dreams. Unbeatable prices, unlimited miles,</text>
+                  <text x="50" y="286" font-family="system-ui, sans-serif" font-size="13" fill="#94A3B8">flexible pick-up options and 24/7 dedicated customer support.</text>
+
+                  <!-- CTA Buttons -->
+                  <rect x="50" y="315" width="130" height="42" rx="6" fill="#FF4D30"/>
+                  <text x="80" y="341" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Book Ride ✓</text>
+                  <rect x="195" y="315" width="130" height="42" rx="6" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+                  <text x="225" y="341" font-family="Poppins, sans-serif" font-size="13" font-weight="600" fill="#FFFFFF">Learn More ❯</text>
+
+                  <!-- Illustrated Sports Car Silhouette with Red/Orange Accents -->
+                  <g transform="translate(420, 150)">
+                    <ellipse cx="170" cy="180" rx="160" ry="20" fill="#0A0F1D"/>
+                    <!-- Main Body Gradient -->
+                    <defs>
+                      <linearGradient id="carRedGrad" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#FF4D30"/>
+                        <stop offset="60%" stop-color="#FA2C0A"/>
+                        <stop offset="100%" stop-color="#D81E00"/>
+                      </linearGradient>
+                    </defs>
+                    <!-- Car Silhouette Path -->
+                    <path d="M20 140 Q 50 135, 75 110 Q 110 80, 160 78 Q 230 78, 275 110 Q 315 120, 335 138 Q 345 155, 335 162 L 290 162 Q 285 140, 260 140 Q 235 140, 230 162 L 120 162 Q 115 140, 90 140 Q 65 140, 60 162 L 20 162 Q 10 155, 20 140 Z" fill="url(#carRedGrad)"/>
+                    <!-- Car Windows -->
+                    <path d="M100 115 Q 120 90, 160 88 L 195 88 L 195 120 L 105 120 Z" fill="#FFFFFF" opacity="0.85"/>
+                    <path d="M205 88 L 245 88 Q 265 100, 275 120 L 205 120 Z" fill="#FFFFFF" opacity="0.85"/>
+                    <!-- Wheels -->
+                    <circle cx="75" cy="162" r="24" fill="#0F172A"/>
+                    <circle cx="75" cy="162" r="14" fill="#475569"/>
+                    <circle cx="75" cy="162" r="5" fill="#020617"/>
+                    <circle cx="245" cy="162" r="24" fill="#0F172A"/>
+                    <circle cx="245" cy="162" r="14" fill="#475569"/>
+                    <circle cx="245" cy="162" r="5" fill="#020617"/>
+                    <!-- Headlight & Tail Light -->
+                    <polygon points="325,138 335,142 328,148" fill="#FDE047"/>
+                    <polygon points="20,145 28,145 26,152 20,150" fill="#EF4444"/>
+                  </g>
+
+                  <!-- Booking Widget Banner -->
+                  <g transform="translate(45, 385)">
+                    <rect width="710" height="175" rx="10" fill="#131F37" stroke="#1E293B" stroke-width="1" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.3))"/>
+                    <text x="25" y="32" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Book a car</text>
+                    
+                    <!-- Form Field 1 -->
+                    <rect x="25" y="48" width="205" height="44" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+                    <text x="40" y="74" font-family="system-ui, sans-serif" font-size="12" fill="#94A3B8">🚗 Select Car Type: Audi A1</text>
+                    
+                    <!-- Form Field 2 -->
+                    <rect x="250" y="48" width="205" height="44" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+                    <text x="265" y="74" font-family="system-ui, sans-serif" font-size="12" fill="#94A3B8">📍 Pick-up: Metro Manila</text>
+
+                    <!-- Form Field 3 -->
+                    <rect x="475" y="48" width="210" height="44" rx="6" fill="#0F172A" stroke="#334155" stroke-width="1"/>
+                    <text x="490" y="74" font-family="system-ui, sans-serif" font-size="12" fill="#94A3B8">📅 Date: 12/04/2026</text>
+
+                    <!-- Search Button -->
+                    <rect x="25" y="108" width="660" height="46" rx="6" fill="#FF4D30"/>
+                    <text x="330" y="136" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF" text-anchor="middle">Search Available Rides 🔍</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Text Column: Centered, Bold Uppercase Title with Emoji, Muted Description, Tech Badges, Action Links -->
+            <div class="reveal-right lg:col-span-5 order-2 flex flex-col items-center text-center px-4">
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 uppercase">
+                CAR RENTAL 🚗
+              </h3>
+              <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                A car rental website is an online platform that allows users to rent cars for personal or business use. The site provides an interface for searching, comparing, and reserving cars.
+              </p>
+              
+              <!-- Tech Names in Semi-Bold -->
+              <div class="mt-5 flex flex-wrap justify-center gap-3">
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">React</span>
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Node.js</span>
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">CSS</span>
+              </div>
+
+              <!-- Action Links: Code & Live Demo -->
+              <div class="mt-6 flex items-center justify-center gap-6">
+                <!-- REPLACE: Code link for Car Rental -->
+                <a href="https://github.com/johnpaulomendez/car-rental" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Code</span>
+                  <svg role="img" viewBox="0 0 24 24" width="20" height="20" class="w-5 h-5 fill-current" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                  </svg>
+                </a>
+
+                <!-- REPLACE: Live Demo link for Car Rental -->
+                <a href="https://example.com/car-rental" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Live Demo</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- ----------------------------------------------------------------- -->
+          <!-- PROJECT 2: COINDOM 🪙 (Text Left, Image Right on Desktop)          -->
+          <!-- On mobile: Image always comes first (order-1 vs order-2)          -->
+          <!-- ----------------------------------------------------------------- -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Image Column: Desktop Right (order-1 lg:order-2) -->
+            <div class="reveal-right lg:col-span-7 order-1 lg:order-2">
+              <div class="project-image-card bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg shadow-slate-200/50 aspect-[4/3] relative">
+                <!-- REPLACE: To swap this SVG placeholder with a real image:
+                <img src="coindom.jpg" alt="Coindom Crypto Website Screenshot" class="w-full h-full object-cover rounded-2xl">
+                -->
+                <!-- Placeholder Inline SVG: Dark Navy Crypto Landing Page -->
+                <svg viewBox="0 0 800 600" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Coindom Crypto mock screenshot">
+                  <title>Coindom Crypto Landing Page Mockup</title>
+                  <!-- Dark Navy Gradient Background -->
+                  <defs>
+                    <linearGradient id="cryptoBgGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#0B132B"/>
+                      <stop offset="50%" stop-color="#101935"/>
+                      <stop offset="100%" stop-color="#1C2541"/>
+                    </linearGradient>
+                    <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#10B981" stop-opacity="0.45"/>
+                      <stop offset="100%" stop-color="#10B981" stop-opacity="0.0"/>
+                    </linearGradient>
+                  </defs>
+                  <rect width="800" height="600" fill="url(#cryptoBgGrad)"/>
+
+                  <!-- Browser Top Window Bar -->
+                  <rect width="800" height="42" fill="#0A0F1D"/>
+                  <line x1="0" y1="42" x2="800" y2="42" stroke="#1E293B" stroke-width="1"/>
+                  <circle cx="28" cy="21" r="5" fill="#EF4444"/>
+                  <circle cx="44" cy="21" r="5" fill="#F59E0B"/>
+                  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+                  <rect x="90" y="10" width="320" height="22" rx="4" fill="#1E293B"/>
+                  <text x="105" y="25" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">https://coindom-crypto.example.com</text>
+
+                  <!-- Navbar -->
+                  <rect x="0" y="42" width="800" height="54" fill="#0D152A" opacity="0.95"/>
+                  <circle cx="50" cy="69" r="14" fill="#F59E0B"/>
+                  <text x="45" y="74" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#000000">🪙</text>
+                  <text x="74" y="74" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">COIN<tspan fill="#60A5FA">DOM</tspan></text>
+                  
+                  <rect x="420" y="63" width="50" height="12" rx="3" fill="#64748B" opacity="0.4"/>
+                  <rect x="485" y="63" width="50" height="12" rx="3" fill="#64748B" opacity="0.4"/>
+                  <rect x="550" y="63" width="55" height="12" rx="3" fill="#64748B" opacity="0.4"/>
+                  <rect x="670" y="55" width="100" height="28" rx="14" fill="#3B82F6"/>
+                  <text x="720" y="73" font-family="Poppins, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">Connect Wallet</text>
+
+                  <!-- Hero Title & Live Stats -->
+                  <text x="50" y="145" font-family="Poppins, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">Track &amp; Trade <tspan fill="#38BDF8">Crypto</tspan></text>
+                  <text x="50" y="172" font-family="system-ui, sans-serif" font-size="13" fill="#94A3B8">Real-time quotes, market cap metrics, and interactive charts.</text>
+
+                  <!-- Featured Crypto Hero Cards -->
+                  <!-- Bitcoin Card -->
+                  <g transform="translate(50, 195)">
+                    <rect width="210" height="85" rx="12" fill="#16223F" stroke="#1E293B" stroke-width="1"/>
+                    <circle cx="30" cy="30" r="14" fill="#F7931A"/>
+                    <text x="24" y="36" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">₿</text>
+                    <text x="54" y="28" font-family="Poppins, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Bitcoin</text>
+                    <text x="54" y="44" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">BTC</text>
+                    <text x="25" y="70" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">$68,420.50</text>
+                    <text x="145" y="70" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#10B981">+4.25% ↗</text>
+                  </g>
+
+                  <!-- Ethereum Card -->
+                  <g transform="translate(280, 195)">
+                    <rect width="210" height="85" rx="12" fill="#16223F" stroke="#1E293B" stroke-width="1"/>
+                    <circle cx="30" cy="30" r="14" fill="#627EEA"/>
+                    <text x="26" y="35" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#FFFFFF">♦</text>
+                    <text x="54" y="28" font-family="Poppins, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Ethereum</text>
+                    <text x="54" y="44" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">ETH</text>
+                    <text x="25" y="70" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">$3,840.10</text>
+                    <text x="145" y="70" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#10B981">+2.84% ↗</text>
+                  </g>
+
+                  <!-- Solana Card -->
+                  <g transform="translate(510, 195)">
+                    <rect width="240" height="85" rx="12" fill="#16223F" stroke="#1E293B" stroke-width="1"/>
+                    <circle cx="30" cy="30" r="14" fill="#14F195"/>
+                    <text x="26" y="35" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#0B132B">◎</text>
+                    <text x="54" y="28" font-family="Poppins, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Solana</text>
+                    <text x="54" y="44" font-family="system-ui, sans-serif" font-size="11" fill="#64748B">SOL</text>
+                    <text x="25" y="70" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">$194.75</text>
+                    <text x="165" y="70" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#10B981">+7.82% ↗</text>
+                  </g>
+
+                  <!-- Interactive Live Chart Section -->
+                  <g transform="translate(50, 305)">
+                    <rect width="700" height="255" rx="12" fill="#121D38" stroke="#1E293B" stroke-width="1"/>
+                    <!-- Chart Header -->
+                    <text x="25" y="35" font-family="Poppins, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">BTC/USD Live Trend</text>
+                    <text x="25" y="55" font-family="system-ui, sans-serif" font-size="12" fill="#10B981">● Bullish Market Momentum</text>
+                    
+                    <!-- Time Filters -->
+                    <rect x="520" y="20" width="30" height="22" rx="4" fill="#3B82F6"/>
+                    <text x="535" y="35" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#FFFFFF" text-anchor="middle">1D</text>
+                    <rect x="560" y="20" width="30" height="22" rx="4" fill="#1E293B"/>
+                    <text x="575" y="35" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">1W</text>
+                    <rect x="600" y="20" width="30" height="22" rx="4" fill="#1E293B"/>
+                    <text x="615" y="35" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">1M</text>
+                    <rect x="640" y="20" width="30" height="22" rx="4" fill="#1E293B"/>
+                    <text x="655" y="35" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8" text-anchor="middle">1Y</text>
+
+                    <!-- Chart Grid Lines -->
+                    <line x1="25" y1="90" x2="675" y2="90" stroke="#1E293B" stroke-dasharray="4"/>
+                    <line x1="25" y1="135" x2="675" y2="135" stroke="#1E293B" stroke-dasharray="4"/>
+                    <line x1="25" y1="180" x2="675" y2="180" stroke="#1E293B" stroke-dasharray="4"/>
+
+                    <!-- Glow Chart Area & Line -->
+                    <polygon points="25,210 50,185 100,195 160,160 220,175 280,130 350,145 420,110 500,125 580,85 640,95 675,70 675,225 25,225" fill="url(#chartGrad)"/>
+                    <polyline points="25,210 50,185 100,195 160,160 220,175 280,130 350,145 420,110 500,125 580,85 640,95 675,70" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"/>
+                    
+                    <!-- Pulsing Data Dot at Peak -->
+                    <circle cx="675" cy="70" r="6" fill="#10B981" opacity="0.5"/>
+                    <circle cx="675" cy="70" r="3.5" fill="#FFFFFF"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Text Column: Desktop Left (order-2 lg:order-1) -->
+            <div class="reveal-left lg:col-span-5 order-2 lg:order-1 flex flex-col items-center text-center px-4">
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 uppercase">
+                COINDOM 🪙
+              </h3>
+              <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                Coindom is a cryptocurrency tracking platform that allows users to search, track price movements, view interactive real-time market charts, and explore blockchain assets.
+              </p>
+
+              <!-- Tech Names in Semi-Bold -->
+              <div class="mt-5 flex flex-wrap justify-center gap-3">
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Flutter</span>
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Dart</span>
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Node.js</span>
+              </div>
+
+              <!-- Action Links: Code & Live Demo -->
+              <div class="mt-6 flex items-center justify-center gap-6">
+                <!-- REPLACE: Code link for Coindom -->
+                <a href="https://github.com/johnpaulomendez/coindom-crypto" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Code</span>
+                  <svg role="img" viewBox="0 0 24 24" width="20" height="20" class="w-5 h-5 fill-current" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                  </svg>
+                </a>
+
+                <!-- REPLACE: Live Demo link for Coindom -->
+                <a href="https://example.com/coindom" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Live Demo</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- ----------------------------------------------------------------- -->
+          <!-- PROJECT 3: CLIENT DASHBOARD 📊 (Image Left, Text Right)            -->
+          <!-- Has no code link. Shows "Private repo, available on request"      -->
+          <!-- ----------------------------------------------------------------- -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Image Column: Desktop Left (order-1) -->
+            <div class="reveal-left lg:col-span-7 order-1">
+              <div class="project-image-card bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg shadow-slate-200/50 aspect-[4/3] relative">
+                <!-- REPLACE: To swap this SVG placeholder with a real image:
+                <img src="dashboard.jpg" alt="Client Dashboard Screenshot" class="w-full h-full object-cover rounded-2xl">
+                -->
+                <!-- Placeholder Inline SVG: Dark SaaS Dashboard -->
+                <svg viewBox="0 0 800 600" class="w-full h-full object-cover" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Client Dashboard mock screenshot">
+                  <title>Client Dashboard Analytics Mockup</title>
+                  <!-- Background -->
+                  <rect width="800" height="600" fill="#0B1120"/>
+
+                  <!-- Browser Top Window Bar -->
+                  <rect width="800" height="42" fill="#0F172A"/>
+                  <line x1="0" y1="42" x2="800" y2="42" stroke="#1E293B" stroke-width="1"/>
+                  <circle cx="28" cy="21" r="5" fill="#EF4444"/>
+                  <circle cx="44" cy="21" r="5" fill="#F59E0B"/>
+                  <circle cx="60" cy="21" r="5" fill="#10B981"/>
+                  <rect x="90" y="10" width="320" height="22" rx="4" fill="#1E293B"/>
+                  <text x="105" y="25" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">https://app.clientmetrics.example.com</text>
+
+                  <!-- Left Mini Sidebar (Blue accents) -->
+                  <rect x="0" y="42" width="70" height="558" fill="#0D1528"/>
+                  <!-- Brand Blue Active Indicator -->
+                  <rect x="0" y="70" width="4" height="38" fill="#1E7DFF"/>
+                  <circle cx="35" cy="88" r="16" fill="#1E7DFF" opacity="0.2"/>
+                  <circle cx="35" cy="88" r="8" fill="#1E7DFF"/>
+                  
+                  <!-- Nav Icons -->
+                  <rect x="25" y="145" width="20" height="16" rx="3" fill="#64748B" opacity="0.6"/>
+                  <rect x="25" y="195" width="20" height="16" rx="3" fill="#64748B" opacity="0.6"/>
+                  <rect x="25" y="245" width="20" height="16" rx="3" fill="#64748B" opacity="0.6"/>
+                  <rect x="25" y="295" width="20" height="16" rx="3" fill="#64748B" opacity="0.6"/>
+                  <circle cx="35" cy="550" r="14" fill="#334155"/>
+
+                  <!-- Top Header Area -->
+                  <rect x="70" y="42" width="730" height="56" fill="#0F172A"/>
+                  <line x1="70" y1="98" x2="800" y2="98" stroke="#1E293B" stroke-width="1"/>
+                  <text x="100" y="76" font-family="Poppins, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Performance &amp; Client Overview</text>
+                  <!-- Date Filter Pill -->
+                  <rect x="620" y="55" width="140" height="30" rx="15" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+                  <text x="690" y="74" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#94A3B8" text-anchor="middle">📅 This Month (Nov 2026)</text>
+
+                  <!-- KPI Stat Cards Row -->
+                  <!-- Stat 1: Total Revenue -->
+                  <g transform="translate(100, 120)">
+                    <rect width="210" height="100" rx="12" fill="#131F37" stroke="#1E293B" stroke-width="1"/>
+                    <text x="20" y="32" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94A3B8">TOTAL REVENUE</text>
+                    <text x="20" y="66" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#38BDF8">$128,450</text>
+                    <text x="20" y="88" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#10B981">+18.2% vs last month</text>
+                  </g>
+
+                  <!-- Stat 2: Active Clients -->
+                  <g transform="translate(330, 120)">
+                    <rect width="210" height="100" rx="12" fill="#131F37" stroke="#1E293B" stroke-width="1"/>
+                    <text x="20" y="32" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94A3B8">ACTIVE CLIENTS</text>
+                    <text x="20" y="66" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#FFFFFF">2,840</text>
+                    <text x="20" y="88" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#60A5FA">+124 new this week</text>
+                  </g>
+
+                  <!-- Stat 3: Conversion Rate -->
+                  <g transform="translate(560, 120)">
+                    <rect width="200" height="100" rx="12" fill="#131F37" stroke="#1E293B" stroke-width="1"/>
+                    <text x="20" y="32" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#94A3B8">AVG RETENTION</text>
+                    <text x="20" y="66" font-family="Poppins, sans-serif" font-size="24" font-weight="700" fill="#10B981">94.8%</text>
+                    <text x="20" y="88" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#10B981">+3.4% satisfaction</text>
+                  </g>
+
+                  <!-- Main Chart Widget: Blue Bar Chart -->
+                  <g transform="translate(100, 245)">
+                    <rect width="660" height="185" rx="12" fill="#131F37" stroke="#1E293B" stroke-width="1"/>
+                    <text x="25" y="32" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">Quarterly Revenue Growth</text>
+                    
+                    <!-- Chart Baseline and Gridlines -->
+                    <line x1="25" y1="65" x2="635" y2="65" stroke="#1E293B" stroke-width="1"/>
+                    <line x1="25" y1="105" x2="635" y2="105" stroke="#1E293B" stroke-width="1"/>
+                    <line x1="25" y1="145" x2="635" y2="145" stroke="#1E293B" stroke-width="1"/>
+
+                    <!-- Monthly Blue Bars with gradient heights -->
+                    <rect x="65" y="100" width="30" height="45" rx="4" fill="#3B82F6" opacity="0.6"/>
+                    <text x="80" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Jan</text>
+
+                    <rect x="125" y="85" width="30" height="60" rx="4" fill="#3B82F6" opacity="0.7"/>
+                    <text x="140" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Feb</text>
+
+                    <rect x="185" y="70" width="30" height="75" rx="4" fill="#3B82F6" opacity="0.8"/>
+                    <text x="200" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Mar</text>
+
+                    <rect x="245" y="80" width="30" height="65" rx="4" fill="#60A5FA"/>
+                    <text x="260" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Apr</text>
+
+                    <rect x="305" y="55" width="30" height="90" rx="4" fill="#38BDF8"/>
+                    <text x="320" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">May</text>
+
+                    <rect x="365" y="45" width="30" height="100" rx="4" fill="#1E7DFF"/>
+                    <text x="380" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Jun</text>
+
+                    <rect x="425" y="60" width="30" height="85" rx="4" fill="#38BDF8"/>
+                    <text x="440" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Jul</text>
+
+                    <rect x="485" y="40" width="30" height="105" rx="4" fill="#1E7DFF"/>
+                    <text x="500" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Aug</text>
+
+                    <rect x="545" y="30" width="30" height="115" rx="4" fill="#60A5FA"/>
+                    <text x="560" y="162" font-family="system-ui, sans-serif" font-size="10" fill="#94A3B8" text-anchor="middle">Sep</text>
+                  </g>
+
+                  <!-- Recent Client Activity Table Snippet -->
+                  <g transform="translate(100, 448)">
+                    <rect width="660" height="125" rx="10" fill="#131F37" stroke="#1E293B" stroke-width="1"/>
+                    <text x="25" y="26" font-family="Poppins, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Recent Client Transactions</text>
+                    
+                    <!-- Row 1 -->
+                    <circle cx="40" cy="52" r="10" fill="#1E293B"/>
+                    <text x="40" y="56" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#38BDF8" text-anchor="middle">AC</text>
+                    <text x="65" y="56" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Acme Corp Ltd</text>
+                    <text x="420" y="56" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">Enterprise Tier</text>
+                    <rect x="560" y="44" width="75" height="18" rx="9" fill="#064E3B"/>
+                    <text x="597" y="56" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#34D399" text-anchor="middle">Completed</text>
+
+                    <!-- Row 2 -->
+                    <circle cx="40" cy="85" r="10" fill="#1E293B"/>
+                    <text x="40" y="89" font-family="system-ui, sans-serif" font-size="10" font-weight="700" fill="#A78BFA" text-anchor="middle">NV</text>
+                    <text x="65" y="89" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">Nova Ventures</text>
+                    <text x="420" y="89" font-family="system-ui, sans-serif" font-size="11" fill="#94A3B8">Pro Annual</text>
+                    <rect x="560" y="77" width="75" height="18" rx="9" fill="#1E3A8A"/>
+                    <text x="597" y="89" font-family="system-ui, sans-serif" font-size="10" font-weight="600" fill="#93C5FD" text-anchor="middle">Processing</text>
+                  </g>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Text Column: Desktop Right (order-2) -->
+            <div class="reveal-right lg:col-span-5 order-2 flex flex-col items-center text-center px-4">
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 uppercase">
+                CLIENT DASHBOARD 📊
+              </h3>
+              <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                An internal customer relationship and business performance dashboard engineered for monitoring real-time sales pipelines, KPI telemetry, and client communications.
+              </p>
+
+              <!-- Tech Names in Semi-Bold -->
+              <div class="mt-5 flex flex-wrap justify-center gap-3">
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Python</span>
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">TensorFlow</span>
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">React</span>
+              </div>
+
+              <!-- Action Links: Live Demo & Private Repo Note (NO Code Link) -->
+              <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+                <!-- REPLACE: Live Demo link for Client Dashboard -->
+                <a href="https://example.com/client-dashboard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Live Demo</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+
+                <!-- Private repo note beside Live Demo link -->
+                <span class="text-xs text-slate-500 italic">
+                  Private repo, available on request
+                </span>
+              </div>
+            </div>
+
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SKILLS SECTION — Tech Stack badge layout with 4 groups                 -->
+    <!-- ======================================================================= -->
+    <section id="skills" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="skills-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+        <!-- Section Heading with laptop icon -->
+        <div class="reveal-left flex items-center gap-3 mb-12 md:mb-16 pb-4 border-b border-slate-200/80">
+          <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 20h20"/>
+          </svg>
+          <h2 id="skills-heading" class="heading-accent text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            Tech Stack
+          </h2>
+        </div>
+
+        <!-- Helper: shared badge style via inline styles — colored pill with icon + label -->
+        <div class="space-y-10">
+
+          <!-- ── Languages & Markup ── -->
+          <div class="reveal-left">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Languages &amp; Markup</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- Python #3776AB -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#3776AB;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11.858 0c-.978.005-1.913.088-2.736.234C6.7.662 6.26 1.558 6.26 3.21v2.182h5.725v.727H4.111c-1.664 0-3.121 1-3.577 2.903-.526 2.181-.549 3.542 0 5.82.407 1.694 1.379 2.902 3.043 2.902h1.969v-2.616c0-1.89 1.635-3.557 3.576-3.557h5.72c1.591 0 2.862-1.31 2.862-2.91v-5.45c0-1.553-1.309-2.718-2.863-2.977A18 18 0 0 0 11.858 0M8.762 1.755c.591 0 1.074.491 1.074 1.095 0 .601-.483 1.087-1.074 1.087A1.08 1.08 0 0 1 7.688 2.85c0-.604.48-1.095 1.074-1.095m9.656 4.364v2.543c0 1.971-1.671 3.63-3.577 3.63H9.122c-1.566 0-2.862 1.34-2.862 2.91v5.452c0 1.551 1.349 2.464 2.862 2.91 1.813.532 3.55.628 5.72 0 1.44-.418 2.862-1.258 2.862-2.91V18.47h-5.719v-.727h8.582c1.664 0 2.284-1.16 2.862-2.903.598-1.793.573-3.518 0-5.819-.41-1.656-1.196-2.903-2.862-2.903zm-3.216 13.807a1.08 1.08 0 0 1 1.074 1.088c0 .604-.48 1.094-1.074 1.094-.592 0-1.075-.49-1.075-1.094 0-.601.483-1.088 1.075-1.088"/></svg>
+                  Python
+                </span>
+              </li>
+
+              <!-- Dart #0175C2 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#0175C2;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/></svg>
+                  Dart
+                </span>
+              </li>
+
+              <!-- JavaScript #F7DF1E / black text -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-black text-xs font-bold uppercase tracking-wide" style="background:#F7DF1E;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect width="24" height="24" fill="#F7DF1E"/><path fill="#000" d="M22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
+                  JavaScript
+                </span>
+              </li>
+
+              <!-- HTML5 #E34F26 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#E34F26;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
+                  HTML5
+                </span>
+              </li>
+
+              <!-- CSS3 #1572B6 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#1572B6;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
+                  CSS3
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- ── Frameworks & Libraries ── -->
+          <div class="reveal-right">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Frameworks &amp; Libraries</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- TensorFlow #FF6F00 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#FF6F00;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.311zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603l6.168 3.564z"/></svg>
+                  TensorFlow
+                </span>
+              </li>
+
+              <!-- NumPy #4DABCF -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#4DABCF;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11.372.903L6.278 3.78l5.147 2.973 5.182-2.973zm-.297 6.396L6.03 4.325v5.95l5.044 2.912zm.671 0v6.788l5.056-2.912V4.325zM5.359 4.831L.265 7.708l5.147 2.974 5.182-2.974zm-.298 6.396L.016 8.253v5.95l5.044 2.912zm.671 0v6.788l5.057-2.912V8.253zm5.934-1.09l-5.044 2.9v5.95l5.044-2.9zm.67.014v5.837l5.057-2.9v-5.95z"/></svg>
+                  NumPy
+                </span>
+              </li>
+
+              <!-- Pandas #150458 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#150458;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8.42 0h2.192v5.587l2.558-2.165V0h2.19v3.818l1.46-1.235V0h1.907v1.526l.44-.373V0H21.1v.44l-11.9 10.08v3.096l11.9-10.08v1.213l-11.9 10.08v3.097l11.9-10.08v1.213L9.2 19.14v3.097L21.1 12.157v1.213L9.2 23.45v.55h-2.19v-3.636L4.45 22.6V24H2.544v-3.818l-1.46 1.236V24H.176v-1.527l-.176.15V24H0v-.44L8.42 16.6v-3.096L0 20.584v-1.212L8.42 12.37V9.273L0 16.274v-1.213L8.42 8.06V4.963L0 11.964v-1.213L8.42 3.75V0z"/></svg>
+                  Pandas
+                </span>
+              </li>
+
+              <!-- Flutter #02569B -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#02569B;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>
+                  Flutter
+                </span>
+              </li>
+
+              <!-- React #20232A dark -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#20232A;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#61DAFB" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>
+                  React
+                </span>
+              </li>
+
+              <!-- Node.js #5FA04E -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#5FA04E;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.604.065-.037.151-.023.218.017l2.256 1.339c.082.045.197.045.272 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.053-.192-.137-.242l-8.791-5.072c-.081-.047-.189-.047-.271 0L3.075 6.68C2.99 6.729 2.936 6.825 2.936 6.921v10.15c0 .097.054.189.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675c-.57-.329-.922-.945-.922-1.604V6.921c0-.659.353-1.275.922-1.603l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924.944.924 1.603v10.15c0 .659-.354 1.273-.924 1.604l-8.794 5.078C12.643 23.916 12.324 24 11.998 24z"/></svg>
+                  Node.js
+                </span>
+              </li>
+
+              <!-- Express.js #000000 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#333333;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M24 18.588a1.529 1.529 0 0 1-1.895-.72l-3.45-4.771-.5-.667-4.003 5.444a1.466 1.466 0 0 1-1.802.708l5.158-6.92-4.798-6.251a1.595 1.595 0 0 1 1.9.666l3.576 4.83 3.596-4.81a1.435 1.435 0 0 1 1.788-.668L21.708 7.9l-2.522 3.283a.666.666 0 0 0 0 .994l4.804 6.412zM.002 11.576l.42-2.075c1.154-4.103 5.858-5.81 9.094-3.27 1.895 1.489 2.368 3.597 2.275 5.973H1.116C.943 16.447 4.005 19.009 7.92 17.7a4.078 4.078 0 0 0 2.582-2.876c.207-.666.548-.78 1.174-.588a5.417 5.417 0 0 1-2.589 3.957 6.272 6.272 0 0 1-7.306-.933 6.575 6.575 0 0 1-1.64-3.858c0-.235-.08-.455-.134-.666A88.33 88.33 0 0 1 0 12.766v-1.19zm1.14-.955a5.246 5.246 0 0 0 5.07 4.783c2.145.028 4.221-1.139 4.573-4.783z"/></svg>
+                  Express.js
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- ── Databases ── -->
+          <div class="reveal-left">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Databases</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- MySQL #4479A1 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#4479A1;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.274.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.062-.14-.03-.067-.094-.1-.2-.152zm3.822 4.638c-.07-.03-.143-.06-.214-.076a4.76 4.76 0 0 0-.827-.06c-.38 0-.65.055-.88.154-.232.1-.386.247-.524.42l-.06.1c-.137.2-.19.413-.19.642 0 .268.07.496.19.683.123.19.293.342.496.42.19.08.41.11.638.11.263 0 .498-.047.713-.145l-.024-.024-.024-.025c-.19.1-.41.145-.638.145-.218 0-.42-.034-.605-.1-.19-.067-.353-.184-.484-.345-.13-.162-.19-.37-.19-.638 0-.22.047-.408.145-.578.1-.168.247-.303.44-.395.19-.094.42-.14.666-.14.278 0 .525.052.748.154.054.03.107.055.16.08.03-.01.054-.023.08-.03.1-.034.19-.057.267-.08l.012-.01c.067-.03.123-.07.17-.12.013-.013.013-.03.013-.047 0-.034-.013-.06-.033-.08zm-7.37-4.47c-.19 0-.363.01-.52.047-.168.04-.307.1-.42.18l-.067.055c-.12.1-.214.218-.28.355-.07.138-.1.3-.1.483 0 .222.055.422.167.59.112.167.274.308.483.408.21.1.46.15.737.15.274 0 .512-.05.712-.15.2-.1.36-.238.47-.405.11-.168.168-.368.168-.59 0-.22-.06-.408-.168-.578a1.08 1.08 0 0 0-.46-.395 1.46 1.46 0 0 0-.724-.15zm7.95 2.65c-.16-.112-.35-.19-.568-.234-.218-.047-.455-.07-.713-.07h-1.98v.714h1.978c.202 0 .388.016.558.052.168.034.308.093.422.18.1.08.182.185.228.308.047.12.07.268.07.44 0 .168-.023.316-.07.44a.816.816 0 0 1-.228.316c-.112.08-.25.137-.412.17-.16.034-.345.052-.556.052h-1.978v2.57h-.742V9.51h2.72c.303 0 .58.027.828.08.247.055.464.147.65.274.183.127.33.288.432.484.1.195.154.43.154.7 0 .314-.07.58-.21.797zM7.34 10.51h-.764v3.72h.764v-3.72zm7.714-5.003c-.232 0-.45.03-.65.09-.2.06-.376.148-.524.263a1.19 1.19 0 0 0-.346.432c-.082.17-.12.37-.12.598 0 .253.05.47.15.65.1.182.237.33.407.44.17.112.37.19.598.237.228.047.47.07.724.07.248 0 .476-.023.683-.07a1.65 1.65 0 0 0 .554-.214c.155-.1.278-.23.37-.396.093-.165.138-.368.138-.608 0-.232-.047-.43-.138-.598a1.19 1.19 0 0 0-.37-.432 1.65 1.65 0 0 0-.556-.263 2.46 2.46 0 0 0-.72-.1zM7.34 9.51h-.764v.714h.764V9.51zM24 10.78c0 5.934-5.372 10.74-12 10.74S0 16.714 0 10.78 5.372.04 12 .04 24 4.847 24 10.78zm-7.556-5.65a3.4 3.4 0 0 0-1.063-.688 3.564 3.564 0 0 0-1.316-.237c-.467 0-.893.08-1.274.237a2.986 2.986 0 0 0-.993.665c-.278.284-.49.617-.636.994a3.37 3.37 0 0 0-.224 1.233c0 .45.077.86.224 1.228.148.368.36.69.636.957.278.267.612.47.993.613.382.143.808.213 1.274.213.47 0 .9-.07 1.288-.213a3.19 3.19 0 0 0 1.015-.613c.284-.267.504-.59.66-.957.154-.368.232-.778.232-1.228 0-.455-.078-.866-.232-1.233a2.853 2.853 0 0 0-.584-.97zm-9.788 2.46H4.898v3.72h.758v-1.49h2.976v1.49h.758V7.59h-.758v1.715H5.656V7.59zm10.9 1.9a3.07 3.07 0 0 0-.67-.598 3.195 3.195 0 0 0-.89-.37 4.17 4.17 0 0 0-1.063-.13h-2.16v5.07h2.16c.388 0 .743-.047 1.063-.14.32-.093.6-.234.84-.42.24-.185.428-.42.564-.703.138-.285.207-.618.207-.998 0-.368-.07-.694-.207-.972a2.137 2.137 0 0 0-.564-.736zm-.4 2.986c-.1.22-.244.4-.43.544-.185.144-.408.25-.666.316a3.42 3.42 0 0 1-.89.1h-1.37V8.3h1.37c.32 0 .614.034.89.1.258.067.48.174.666.32.185.146.33.333.43.558.1.225.15.49.15.797 0 .307-.05.573-.15.8z"/></svg>
+                  MySQL
+                </span>
+              </li>
+
+              <!-- MariaDB #003545 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#003545;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M22.667 0c-.83.056-1.86.98-2.924 2.68-.368.587-.713 1.26-1.013 1.994l-.11.313c-.085.247-.162.5-.238.747-.034.113-.066.225-.1.337-1.52.56-2.9 1.456-3.95 2.6-.65.715-1.14 1.49-1.47 2.3-.067.17-.13.343-.187.517-.024.077-.047.154-.07.233a6.6 6.6 0 0 0-.187 1.3c0 .046-.003.09-.003.137 0 .4.038.787.11 1.16l.027.14c.37 1.74 1.52 3.17 3.06 3.95l.08.04c.07.034.14.064.21.094.47.197.973.316 1.5.343l.133.004c.166.005.334.004.5-.003l.1-.006c.293-.023.58-.07.863-.143.1-.024.2-.053.3-.083.066-.02.133-.043.197-.066a7.5 7.5 0 0 0 1.6-.816c.164-.11.32-.226.472-.348.062-.05.123-.1.183-.152 1.413-1.213 2.213-2.98 2.213-5.1v-.066c0-.11-.004-.22-.01-.33-.003-.067-.008-.133-.013-.2a7.72 7.72 0 0 0-.066-.58c-.007-.046-.015-.092-.023-.138a7.3 7.3 0 0 0-.147-.65l-.03-.1c-.06-.19-.126-.375-.2-.557-.03-.075-.062-.15-.094-.224a6.4 6.4 0 0 0-.317-.6c-.03-.05-.063-.1-.094-.15-.082-.13-.17-.256-.262-.38l-.056-.074c-.113-.146-.232-.287-.358-.422l-.013-.013c.016-.104.03-.213.047-.326l.016-.126c.055-.46.1-.985.113-1.56.003-.077.004-.155.004-.233 0-.29-.01-.59-.033-.9L22.667 0zM2.44 7.43c-.056 0-.112.003-.168.007l-.134.012c-1.21.14-2.14 1.17-2.14 2.4 0 1.325 1.07 2.4 2.4 2.4.1 0 .194-.007.29-.02.077-.01.153-.024.228-.04 1.03-.23 1.8-1.14 1.8-2.24 0-1.26-1.02-2.28-2.28-2.28v-.24z"/></svg>
+                  MariaDB
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- ── Tools ── -->
+          <div class="reveal-right">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Tools</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- Git #F05032 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#F05032;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>
+                  Git
+                </span>
+              </li>
+
+              <!-- GitHub #181717 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#181717;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </span>
+              </li>
+
+              <!-- VS Code #007ACC -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#007ACC;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg>
+                  VS Code
+                </span>
+              </li>
+
+              <!-- Antigravity #4285F4 Google Blue -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#4285F4;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#fff"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#fff"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#fff"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#fff"/></svg>
+                  Antigravity
+                </span>
+              </li>
+
+              <!-- Termux #000000 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#000000;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2zm1 2h18v14H3V5zm2.586 2L4.172 8.414 7.758 12l-3.586 3.586L5.586 17 11 11.586V12.4L5.586 7zm7.414 7v2h6v-2h-6z"/></svg>
+                  Termux
+                </span>
+              </li>
+
+              <!-- Android Studio #3DDC84 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#3DDC84;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.523 15.341a.95.95 0 0 1-.95.95H7.427a.95.95 0 0 1-.95-.95V9.19c0-.524.426-.95.95-.95h9.147c.523 0 .95.426.95.95v6.15zm-1.58-5.52H8.058v4.57h7.885v-4.57zm-5.78-3.56a.46.46 0 1 1-.92 0 .46.46 0 0 1 .92 0zm3.673 0a.46.46 0 1 1-.92 0 .46.46 0 0 1 .92 0zM6.65 2.47L5.19 1.01 4.13 2.07l1.46 1.46A9.846 9.846 0 0 0 2.1 11.1h19.8a9.846 9.846 0 0 0-3.49-7.57l1.46-1.46-1.06-1.06-1.46 1.46A9.794 9.794 0 0 0 12 1.1c-1.93 0-3.72.56-5.35 1.37zM2.1 12.9C2.1 18.428 6.573 23 12 23s9.9-4.572 9.9-10.1H2.1z"/></svg>
+                  Android Studio
+                </span>
+              </li>
+
+              <!-- Figma #F24E1E -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#A259FF;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117zm-6.609 7.019c0-2.476 2.014-4.49 4.49-4.49h4.588v8.981h-4.588c-2.476 0-4.49-2.015-4.49-4.491zm1.471 0c0 1.665 1.355 3.019 3.019 3.019h3.117v-6.038h-3.117c-1.664 0-3.019 1.355-3.019 3.019zm6.136-11.51h-4.588C6.146 3 4.132 1.015 4.132-.49 4.132-2.976 6.146-5 8.622-5h4.588c2.476 0 4.49 2.015 4.49 4.49 0 2.477-2.014 4.49-4.49 4.49zm-4.588-1.471h4.588c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019H9.145c-1.664 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019zM8.667 24c-2.476 0-4.49-2.015-4.49-4.491s2.014-4.49 4.49-4.49h4.588v4.49c0 2.476-2.014 4.491-4.588 4.491zm0-7.51c-1.664 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019c1.665 0 3.019-1.355 3.019-3.019v-3.019H8.667z"/></svg>
+                  Figma
+                </span>
+              </li>
+
+              <!-- Postman #FF6C37 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#FF6C37;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643 4.453-4.453a.858.858 0 1 0-1.215-1.215l-4.453 4.453-.308-.308 4.454-4.453a1.714 1.714 0 0 1 2.431 2.422zm-8.057 7.17l-1.14-1.14 5.235-5.235.57.571.569.569-5.234 5.235zm1.665 1.237l-.95-.95 5.11-5.11.95.95-5.11 5.11zm4.682 2.371a3.584 3.584 0 0 1-2.527-1.048l-.023-.023a3.587 3.587 0 0 1-1.048-2.527 3.573 3.573 0 0 1 1.048-2.526l.023-.022 2.573 2.573-.516.516a1.429 1.429 0 0 0 1.47 2.057zm3.088-3.11a1.428 1.428 0 0 0-2.056-1.47l-.516.515-2.572-2.573a3.544 3.544 0 0 1 2.526-1.049 3.588 3.588 0 0 1 2.527 6.112l-.023.023a3.572 3.572 0 0 1-2.527 1.048 3.544 3.544 0 0 1-1.048-.156l1.473-1.473.216-2.977z"/></svg>
+                  Postman
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+        </div><!-- /space-y-10 -->
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- CONTACT SECTION                                                           -->
+    <!-- ======================================================================= -->
+    <section id="contact" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="contact-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        
+        <!-- Large Rounded Glass Card -->
+        <div class="reveal-up bg-gradient-to-b from-blue-50/70 via-white to-slate-50/80 border border-slate-200/90 text-slate-900 rounded-3xl p-10 sm:p-14 md:p-20 text-center shadow-xl shadow-slate-200/50 relative overflow-hidden">
+          
+          <!-- Heading "Let's talk" -->
+          <h2 id="contact-heading" class="heading-accent text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-5">
+            Let's talk
+          </h2>
+
+          <!-- One line about being open to frontend roles and freelance work -->
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+            I'm currently open to full-time Web/App Developer roles and select freelance opportunities.
+          </p>
+
+          <!-- Blue Pill Email Button -->
+          <div class="inline-block">
+            <a href="mailto:your.email@example.com" class="inline-flex items-center gap-3 bg-brand hover:bg-blue-600 text-white font-semibold text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-lg shadow-brand/25 hover:scale-105 focus:rounded-full">
+              <!-- Mail icon -->
+              <svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>your.email@example.com</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="border-t border-slate-200/80 py-10 text-center bg-slate-50/80 relative z-10">
+    <p class="text-xs sm:text-sm text-slate-500 font-medium">
+      &copy; 2026 John Paulo Mendez. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- CLIENT JAVASCRIPT — Object-Oriented Architecture (OOP)                    -->
+  <!-- ========================================================================= -->
+  <script>
+    /**
+     * HeadingGradientController
+     * Manages per-letter color interpolation across high-contrast gradient stops
+     */
+    class HeadingGradientController {
+      constructor(selector = '.interactive-letter') {
+        this.letters = document.querySelectorAll(selector);
+        // Rich high-contrast gradient for white canvas: Ink Slate -> Royal Navy -> Electric Blue -> Violet
+        this.stops = [
+          { t: 0.00, r: 15,  g: 23,  b: 42  }, // #0F172A
+          { t: 0.35, r: 30,  g: 58,  b: 138 }, // #1E3A8A
+          { t: 0.70, r: 30,  g: 125, b: 255 }, // #1E7DFF
+          { t: 1.00, r: 124, g: 58,  b: 237 }  // #7C3AED
+        ];
+      }
+
+      init() {
+        if (!this.letters.length) return;
+        this.render();
+      }
+
+      render() {
+        const count = this.letters.length;
+        this.letters.forEach((letter, i) => {
+          const factor = i / (count - 1 || 1);
+          const color = this.interpolate(factor);
+          letter.style.color = color;
+          letter.style.webkitTextFillColor = color;
+        });
+      }
+
+      interpolate(factor) {
+        let s0 = this.stops[0];
+        let s1 = this.stops[this.stops.length - 1];
+        for (let j = 0; j < this.stops.length - 1; j++) {
+          if (factor >= this.stops[j].t && factor <= this.stops[j + 1].t) {
+            s0 = this.stops[j];
+            s1 = this.stops[j + 1];
+            break;
+          }
+        }
+        const local = (factor - s0.t) / (s1.t - s0.t || 1);
+        const r = Math.round(s0.r + (s1.r - s0.r) * local);
+        const g = Math.round(s0.g + (s1.g - s0.g) * local);
+        const b = Math.round(s0.b + (s1.b - s0.b) * local);
+        return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+      }
+    }
+
+    /**
+     * ScrollRevealController
+     * Handles viewport intersection observer animations and reduced-motion preferences
+     */
+    class ScrollRevealController {
+      constructor(selector = '.reveal, .reveal-left, .reveal-right, .reveal-up, .reveal-pop') {
+        this.elements = document.querySelectorAll(selector);
+        this.motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        this.observer = null;
+      }
+
+      init() {
+        if (!this.elements.length) return;
+        this.bindEvents();
+        this.evaluate();
+      }
+
+      bindEvents() {
+        if (typeof this.motionQuery.addEventListener === 'function') {
+          this.motionQuery.addEventListener('change', () => this.evaluate());
+        }
+      }
+
+      evaluate() {
+        if (this.motionQuery.matches) {
+          this.revealAll();
+        } else {
+          this.createObserver();
+        }
+      }
+
+      revealAll() {
+        this.elements.forEach(el => el.classList.add('is-revealed'));
+      }
+
+      createObserver() {
+        if (!('IntersectionObserver' in window)) {
+          this.revealAll();
+          return;
+        }
+
+        this.observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-revealed');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, {
+          root: null,
+          rootMargin: '0px 0px -50px 0px',
+          threshold: 0.1
+        });
+
+        this.elements.forEach(el => this.observer.observe(el));
+      }
+    }
+
+    /**
+     * AvatarTiltController
+     * Subtle 3D perspective tilt effect on cursor hover for the JPM centerpiece
+     */
+    class AvatarTiltController {
+      constructor(cardId = 'jpm-avatar-card') {
+        this.card = document.getElementById(cardId);
+      }
+
+      init() {
+        if (!this.card) return;
+        this.card.addEventListener('mousemove', (e) => this.onMove(e));
+        this.card.addEventListener('mouseleave', () => this.onLeave());
+      }
+
+      onMove(e) {
+        const rect = this.card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = ((y - centerY) / centerY) * -7;
+        const rotateY = ((x - centerX) / centerX) * 7;
+        this.card.style.transform = `perspective(600px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(1.02)`;
+      }
+
+      onLeave() {
+        this.card.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
+      }
+    }
+
+    /**
+     * SmoothNavigationController
+     * Handles accessible smooth scrolling for internal section links
+     */
+    class SmoothNavigationController {
+      constructor(selector = 'a[href^="#"]') {
+        this.links = document.querySelectorAll(selector);
+      }
+
+      init() {
+        this.links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const hash = link.getAttribute('href');
+            if (!hash || hash === '#' || !hash.startsWith('#')) return;
+            const target = document.querySelector(hash);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.pushState(null, '', hash);
+            }
+          });
+        });
+      }
+    }
+
+    /**
+     * PortfolioApp
+     * Master OOP coordinator managing modular controllers
+     */
+    class PortfolioApp {
+      constructor() {
+        this.gradientController = new HeadingGradientController();
+        this.revealController = new ScrollRevealController();
+        this.tiltController = new AvatarTiltController();
+        this.navController = new SmoothNavigationController();
+      }
+
+      start() {
+        this.gradientController.init();
+        this.revealController.init();
+        this.tiltController.init();
+        this.navController.init();
+      }
+    }
+
+    // Initialize application when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => new PortfolioApp().start());
+    } else {
+      new PortfolioApp().start();
+    }
+  </script>
+
+</body>
+</html>

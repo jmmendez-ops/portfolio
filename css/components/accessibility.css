@@ -1,0 +1,45 @@
+﻿/* ── Prefers-reduced-motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-up,
+  .reveal-pop {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .project-image-card:hover,
+  .skill-badge:hover,
+  .interactive-letter:hover,
+  .waving-hand:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    filter: none !important;
+    animation: none !important;
+  }
+  ul[aria-label="Core technologies"] > li:hover {
+    transform: none !important;
+    filter: none !important;
+  }
+  .stars1,
+  .stars2,
+  .stars3,
+  .nebula,
+  .shoot,
+  .bh-outer-glow,
+  .bh-accretion-disk,
+  .bh-photon-ring,
+  .bh-particle-1,
+  .bh-particle-2,
+  .bh-avatar-float {
+    animation: none !important;
+  }
+}

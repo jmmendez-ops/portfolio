@@ -1,0 +1,11 @@
+﻿    /* ── Floating Badge Animations ── */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes floatRev {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(7px); }
+    }
+    .animate-float-slow { animation: floatSlow 5s ease-in-out infinite; }
+    .animate-float-rev { animation: floatRev 6s ease-in-out infinite; }

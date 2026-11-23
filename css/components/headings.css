@@ -1,0 +1,17 @@
+﻿/* ── Section heading accent bar ── */
+.heading-accent {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+.heading-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 52px;
+  height: 3px;
+  background: linear-gradient(90deg, #67E8F9 0%, #A78BFA 60%, transparent 100%);
+  border-radius: 2px;
+  box-shadow: 0 0 14px rgba(103, 232, 249, 0.6);
+}

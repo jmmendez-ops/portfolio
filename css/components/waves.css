@@ -1,0 +1,101 @@
+﻿/* ── Moving Space Background ── */
+.space-background,
+.page-flowing-waves {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 15%, #0d1033 0%, #05060f 80%) no-repeat;
+}
+
+@keyframes drift1 {
+  from { background-position: 0 0; }
+  to { background-position: 0 -300px; }
+}
+@keyframes drift2 {
+  from { background-position: 0 0; }
+  to { background-position: 0 -520px; }
+}
+@keyframes drift3 {
+  from { background-position: 0 0; }
+  to { background-position: 0 -740px; }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+@keyframes nebula {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(50px, -40px) scale(1.12); }
+}
+@keyframes shoot {
+  0% { opacity: 0; transform: translate(0, 0) rotate(-35deg); }
+  3% { opacity: 1; }
+  12% { opacity: 0; transform: translate(-700px, 490px) rotate(-35deg); }
+  100% { opacity: 0; transform: translate(-700px, 490px) rotate(-35deg); }
+}
+
+.stars1 {
+  position: absolute;
+  inset: 0;
+  opacity: 0.75;
+  background-size: 300px 300px;
+  animation: drift1 90s linear infinite;
+  background-image: radial-gradient(1px 1px at 20px 30px, #fff 50%, transparent 100%),
+                    radial-gradient(1px 1px at 120px 80px, #cfe8ff 50%, transparent 100%),
+                    radial-gradient(1px 1px at 220px 160px, #fff 50%, transparent 100%),
+                    radial-gradient(1px 1px at 70px 210px, #e6dcff 50%, transparent 100%),
+                    radial-gradient(1px 1px at 260px 25px, #fff 50%, transparent 100%),
+                    radial-gradient(1px 1px at 170px 270px, #fff 50%, transparent 100%),
+                    radial-gradient(1px 1px at 45px 140px, #cfe8ff 50%, transparent 100%),
+                    radial-gradient(1px 1px at 285px 235px, #fff 50%, transparent 100%);
+}
+
+.stars2 {
+  position: absolute;
+  inset: 0;
+  opacity: 0.85;
+  background-size: 520px 520px;
+  animation: drift2 140s linear infinite;
+  background-image: radial-gradient(1.6px 1.6px at 60px 90px, #fff 50%, transparent 100%),
+                    radial-gradient(1.6px 1.6px at 210px 40px, #cfe8ff 50%, transparent 100%),
+                    radial-gradient(1.6px 1.6px at 400px 150px, #fff 50%, transparent 100%),
+                    radial-gradient(1.6px 1.6px at 120px 330px, #e6dcff 50%, transparent 100%),
+                    radial-gradient(1.6px 1.6px at 330px 300px, #fff 50%, transparent 100%),
+                    radial-gradient(1.6px 1.6px at 470px 440px, #fff 50%, transparent 100%),
+                    radial-gradient(1.6px 1.6px at 250px 480px, #cfe8ff 50%, transparent 100%),
+                    radial-gradient(1.6px 1.6px at 30px 230px, #fff 50%, transparent 100%);
+}
+
+.stars3 {
+  position: absolute;
+  inset: 0;
+  background-size: 740px 740px;
+  animation: drift3 200s linear infinite, twinkle 4s ease-in-out infinite;
+  background-image: radial-gradient(2.4px 2.4px at 150px 120px, #fff 40%, transparent 100%),
+                    radial-gradient(2.4px 2.4px at 520px 60px, #bae6fd 40%, transparent 100%),
+                    radial-gradient(2.4px 2.4px at 660px 340px, #fde68a 40%, transparent 100%),
+                    radial-gradient(2.4px 2.4px at 300px 420px, #f5d0fe 40%, transparent 100%),
+                    radial-gradient(2.4px 2.4px at 80px 600px, #fff 40%, transparent 100%),
+                    radial-gradient(2.4px 2.4px at 560px 640px, #bae6fd 40%, transparent 100%),
+                    radial-gradient(2.4px 2.4px at 420px 250px, #fff 40%, transparent 100%);
+}
+
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  animation: nebula 26s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.shoot {
+  position: absolute;
+  width: 120px;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #fff, transparent);
+  box-shadow: 0 0 8px 1px rgba(186, 230, 253, 0.7);
+  animation: shoot 11s linear infinite;
+  pointer-events: none;
+}

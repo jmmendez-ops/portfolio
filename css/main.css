@@ -1,0 +1,12 @@
+﻿@import './base.css';
+@import './components/reveal.css';
+@import './components/gradient-text.css';
+@import './components/waves.css';
+@import './animations.css';
+@import './components/navigation.css';
+@import './components/tech-stack.css';
+@import './components/skills.css';
+@import './components/projects.css';
+@import './components/headings.css';
+@import './components/hero.css';
+@import './components/accessibility.css';

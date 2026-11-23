@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- REPLACE: Page Title -->
+  <title>John Paulo Mendez | Web/App Developer</title>
+  <meta name="description" content="Web/App Developer based in Calamba, Philippines. Building responsive websites, cross-platform mobile apps, and scalable backend solutions.">
+
+  <!-- Google Fonts: Poppins (400, 500, 600, 700) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#1E7DFF',
+            ink: '#14161A',
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-brand selection:text-white relative min-h-screen overflow-x-hidden">
+
+  <!-- Space Canvas: twinkling stars, explosions, shockwave warp -->
+  <canvas id="space-canvas" aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;"></canvas>
+
+  <!-- Moving Space Background (Parallax Stars, Nebulae & Shooting Stars) -->
+  <div class="space-background" aria-hidden="true">
+    <div class="stars1"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    <!-- 4 Soft Nebula Blobs -->
+    <div class="nebula" style="top: -200px; left: -200px; width: 950px; height: 950px; background: radial-gradient(circle, rgba(124,58,237,.34), transparent 68%);"></div>
+    <div class="nebula" style="top: 35%; right: -250px; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(34,211,238,.18), transparent 68%); animation-delay: -7s;"></div>
+    <div class="nebula" style="bottom: 10%; left: -250px; width: 900px; height: 900px; background: radial-gradient(circle, rgba(236,72,153,.18), transparent 68%); animation-delay: -14s;"></div>
+    <div class="nebula" style="bottom: -200px; right: -150px; width: 950px; height: 950px; background: radial-gradient(circle, rgba(124,58,237,.26), transparent 68%); animation-delay: -21s;"></div>
+    <!-- 3 Shooting Stars -->
+    <div class="shoot" style="top: 15%; right: 10%; animation-delay: 2s;"></div>
+    <div class="shoot" style="top: 38%; right: 25%; animation-delay: 7s;"></div>
+    <div class="shoot" style="top: 65%; right: 5%; animation-delay: 4.5s;"></div>
+  </div>
+
+  <!-- Accessible Skip to Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-lg focus:font-semibold focus:shadow-xl">
+    Skip to main content
+  </a>
+
+  <!-- ========================================================================= -->
+  <!-- HEADER                                                                    -->
+  <!-- ========================================================================= -->
+  <header class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-xl border-b border-slate-200/80 transition-all">
+    <div class="max-w-6xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+      <!-- Brand Logo / Monogram on Mobile, Full Name on Desktop -->
+      <a href="#" class="font-bold text-base sm:text-xl tracking-tight text-slate-900 hover:text-brand transition-colors focus:rounded-md shrink-0">
+        <span class="hidden md:inline">John Paulo Mendez</span>
+        <span class="md:hidden font-extrabold tracking-tight text-brand">JPM<span class="text-slate-900 font-medium text-xs ml-1 tracking-normal">dev</span></span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav aria-label="Main Navigation">
+        <ul class="flex items-center gap-2 sm:gap-7 text-xs sm:text-sm font-semibold text-slate-600">
+          <li>
+            <a href="#about" class="hover:text-brand transition-colors py-1 focus:rounded-md">About</a>
+          </li>
+          <li>
+            <a href="#projects" class="hover:text-brand transition-colors py-1 focus:rounded-md">Projects</a>
+          </li>
+          <li>
+            <a href="#skills" class="hover:text-brand transition-colors py-1 focus:rounded-md">Skills</a>
+          </li>
+          <li>
+            <a href="#contact" class="hover:text-brand transition-colors py-1 focus:rounded-md">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN CONTENT                                                              -->
+  <!-- ========================================================================= -->
+  <main id="main-content" class="pt-24 md:pt-32 relative z-10">
+
+    <!-- ======================================================================= -->
+    <!-- HERO SECTION                                                            -->
+    <!-- ======================================================================= -->
+    <section class="relative max-w-6xl mx-auto px-6 lg:px-8 pt-10 pb-20 md:py-28 overflow-hidden lg:overflow-visible" aria-label="Introduction">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Left Column: Bio & Social Icons -->
+        <div class="reveal-left lg:col-span-7 flex flex-col items-start order-1 lg:order-1">
+          <!-- Eyebrow label -->
+          <span class="inline-flex items-center gap-2 text-brand font-semibold text-xs tracking-widest uppercase mb-5 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/80 shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            Available for work
+          </span>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.15] select-none cursor-default isolate" aria-label="Web/App Developer">
+            <span class="block whitespace-nowrap">
+              <span class="gradient-text">
+                <span class="interactive-letter" aria-hidden="true">W</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">b</span><span class="interactive-letter" aria-hidden="true">/</span><span class="interactive-letter" aria-hidden="true">A</span><span class="interactive-letter" aria-hidden="true">p</span><span class="interactive-letter" aria-hidden="true">p</span>
+              </span>
+            </span>
+            <span class="block whitespace-nowrap mt-1">
+              <span class="gradient-text">
+                <span class="interactive-letter" aria-hidden="true">D</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">v</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">l</span><span class="interactive-letter" aria-hidden="true">o</span><span class="interactive-letter" aria-hidden="true">p</span><span class="interactive-letter" aria-hidden="true">e</span><span class="interactive-letter" aria-hidden="true">r</span>
+              </span>
+            </span>
+          </h1>
+          
+          <!-- Bio Text / Name / Location with SVG location pin -->
+          <p class="hero-bio mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-xl">
+            Got a problem? I build the solution. I'm <span class="font-bold text-slate-900">John Paulo Mendez</span>, a <span>Web &amp; App Developer</span> from <span class="inline-flex items-center gap-1 font-semibold text-slate-900">Calamba, Philippines <svg class="w-4 h-4 text-brand inline-block shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>.
+          </p>
+
+          <!-- Social Links (Inline SVGs, 28px, hover brand blue, NO buttons) -->
+          <div class="flex items-center gap-5 mt-8" aria-label="Social Profiles">
+            <!-- LinkedIn URL -->
+            <a href="https://www.linkedin.com/in/john-paulo-mendez-213095381/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand transition-colors p-1 -m-1 focus:rounded-md" aria-label="LinkedIn profile (opens in new tab)">
+              <!-- LinkedIn Simple Icon (28px) -->
+              <svg role="img" viewBox="0 0 24 24" width="28" height="28" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg">
+                <title>LinkedIn</title>
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+
+            <!-- GitHub URL -->
+            <a href="https://github.com/jmmendez-ops" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-brand transition-colors p-1 -m-1 focus:rounded-md" aria-label="GitHub profile (opens in new tab)">
+              <!-- GitHub Simple Icon (28px) -->
+              <svg role="img" viewBox="0 0 24 24" width="28" height="28" class="w-7 h-7 fill-current" xmlns="http://www.w3.org/2000/svg">
+                <title>GitHub</title>
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Modern JPM Avatar Centerpiece (Fixed & Perfectly Responsive) -->
+        <div class="reveal-right lg:col-span-5 flex justify-center items-center order-2 lg:order-2">
+          <!-- Outer Profile Container: perfectly centered, stable proportions, no viewport bleeding -->
+          <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 flex items-center justify-center select-none bh-avatar-float">
+            
+            <!-- Avatar Card Frame (bh-root) with 3D Interstellar Black Hole -->
+            <div id="jpm-avatar-card" class="bh-root relative z-10 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 cursor-pointer select-none">
+              <!-- 3D Sway Animation Wrapper -->
+              <div class="bh-sway">
+                <!-- 3D Tilt Wrapper controlled via AvatarTiltController (--tx, --ty) -->
+                <div class="bh-tilt">
+                  <!-- 1. FAR GLOW -->
+                  <div class="bh-layer-far-glow breathe" aria-hidden="true"></div>
+
+                  <!-- 2. ANAMORPHIC STREAK -->
+                  <div class="bh-layer-streak" aria-hidden="true"></div>
+
+                  <!-- 3. BLOOM -->
+                  <div class="bh-layer-bloom breathe" aria-hidden="true"></div>
+
+                  <!-- 4. LENSED ARCS -->
+                  <div class="bh-layer-arcs" aria-hidden="true"></div>
+
+                  <!-- 5. PHOTON RING -->
+                  <div class="bh-layer-photon-wrap" aria-hidden="true">
+                    <div class="bh-photon-child spin-b"></div>
+                  </div>
+
+                  <!-- 6. ACCRETION DISK: BACK COPY (translateZ: -4px) -->
+                  <div class="bh-layer-disk-back" aria-hidden="true">
+                    <div class="bh-disk-plane">
+                      <div class="bh-disk-gas spin-e"></div>
+                      <div class="bh-disk-doppler"></div>
+                    </div>
+                  </div>
+
+                  <!-- 6. ACCRETION DISK: FRONT HINT COPY (translateZ: 4px, faint) -->
+                  <div class="bh-layer-disk-front" aria-hidden="true">
+                    <div class="bh-disk-plane">
+                      <div class="bh-disk-gas spin-e"></div>
+                    </div>
+                  </div>
+
+                  <!-- 7. PHOTO (Event Horizon) -->
+                  <div class="bh-layer-photo">
+                    <img src="./fe866946-0a39-46d3-9053-dd818db02d4c.jfif" alt="John Paulo Mendez" class="w-full h-full object-cover object-center select-none" draggable="false">
+                    <!-- Photo Inset Overlay -->
+                    <div class="bh-photo-overlay" aria-hidden="true"></div>
+                  </div>
+
+                  <!-- 8. ORBITING PARTICLES IN THE DISK PLANE -->
+                  <div class="bh-layer-particles-wrap" aria-hidden="true">
+                    <div class="bh-particles-child spin-c">
+                      <div class="bh-dot-white"></div>
+                      <div class="bh-dot-amber"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tech Stack Row Under the Two Columns -->
+      <div class="reveal-up mt-16 md:mt-24 pt-10 border-t border-slate-200/80 flex flex-col md:flex-row items-center gap-6 md:gap-8">
+        <!-- Semi-bold Label with Vertical Divider (border-right) on Desktop -->
+        <div class="flex items-center gap-4">
+          <span class="font-semibold text-slate-900 text-base md:text-lg whitespace-nowrap">Tech Stack</span>
+          <div class="hidden md:block h-8 w-[2px] bg-slate-200 ml-4" aria-hidden="true"></div>
+        </div>
+
+        <!-- Tech Stack Icons in a Row (Official Simple Icons paths in brand colors) -->
+        <ul class="flex flex-wrap items-center justify-center gap-6 sm:gap-7" role="list" aria-label="Core technologies">
+          <!-- 1. Python #3776AB -->
+          <li class="flex items-center justify-center" title="Python">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Python</title>
+              <path fill="#3776AB" d="M11.858 0c-.978.005-1.913.088-2.736.234C6.7.662 6.26 1.558 6.26 3.21v2.182h5.725v.727H4.111c-1.664 0-3.121 1-3.577 2.903-.526 2.181-.549 3.542 0 5.82.407 1.694 1.379 2.902 3.043 2.902h1.969v-2.616c0-1.89 1.635-3.557 3.576-3.557h5.72c1.591 0 2.862-1.31 2.862-2.91v-5.45c0-1.553-1.309-2.718-2.863-2.977A18 18 0 0 0 11.858 0M8.762 1.755c.591 0 1.074.491 1.074 1.095 0 .601-.483 1.087-1.074 1.087A1.08 1.08 0 0 1 7.688 2.85c0-.604.48-1.095 1.074-1.095m9.656 4.364v2.543c0 1.971-1.671 3.63-3.577 3.63H9.122c-1.566 0-2.862 1.34-2.862 2.91v5.452c0 1.551 1.349 2.464 2.862 2.91 1.813.532 3.55.628 5.72 0 1.44-.418 2.862-1.258 2.862-2.91V18.47h-5.719v-.727h8.582c1.664 0 2.284-1.16 2.862-2.903.598-1.793.573-3.518 0-5.819-.41-1.656-1.196-2.903-2.862-2.903zm-3.216 13.807a1.08 1.08 0 0 1 1.074 1.088c0 .604-.48 1.094-1.074 1.094-.592 0-1.075-.49-1.075-1.094 0-.601.483-1.088 1.075-1.088"/>
+            </svg>
+          </li>
+
+          <!-- 2. TensorFlow #FF6F00 -->
+          <li class="flex items-center justify-center" title="TensorFlow">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>TensorFlow</title>
+              <path fill="#FF6F00" d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.31zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603l6.168 3.564z"/>
+            </svg>
+          </li>
+
+          <!-- 3. Flutter #02569B -->
+          <li class="flex items-center justify-center" title="Flutter">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Flutter</title>
+              <path fill="#02569B" d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/>
+            </svg>
+          </li>
+
+          <!-- 4. Dart #0175C2 -->
+          <li class="flex items-center justify-center" title="Dart">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Dart</title>
+              <path fill="#0175C2" d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/>
+            </svg>
+          </li>
+
+          <!-- 5. JavaScript (#F7DF1E Yellow Square with Black Letters) -->
+          <li class="flex items-center justify-center" title="JavaScript">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 rounded-sm transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>JavaScript</title>
+              <rect width="24" height="24" rx="2" fill="#F7DF1E"/>
+              <path fill="#000000" d="M22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+            </svg>
+          </li>
+
+          <!-- 6. HTML #E34F26 -->
+          <li class="flex items-center justify-center" title="HTML">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>HTML</title>
+              <path fill="#E34F26" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/>
+            </svg>
+          </li>
+
+          <!-- 7. CSS #1572B6 -->
+          <li class="flex items-center justify-center" title="CSS">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>CSS</title>
+              <path fill="#1572B6" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/>
+            </svg>
+          </li>
+
+          <!-- 8. React #61DAFB -->
+          <li class="flex items-center justify-center" title="React">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>React</title>
+              <path fill="#61DAFB" d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/>
+            </svg>
+          </li>
+
+          <!-- 9. Node.js #5FA04E -->
+          <li class="flex items-center justify-center" title="Node.js">
+            <svg role="img" viewBox="0 0 24 24" width="40" height="40" class="w-10 h-10 transition-transform hover:scale-110" xmlns="http://www.w3.org/2000/svg">
+              <title>Node.js</title>
+              <path fill="#5FA04E" d="M11.998,24c-0.321,0-0.641-0.084-0.922-0.247l-2.936-1.737c-0.438-0.245-0.224-0.332-0.08-0.383 c0.585-0.203,0.703-0.25,1.328-0.604c0.065-0.037,0.151-0.023,0.218,0.017l2.256,1.339c0.082,0.045,0.197,0.045,0.272,0l8.795-5.076 c0.082-0.047,0.134-0.141,0.134-0.238V6.921c0-0.099-0.053-0.192-0.137-0.242l-8.791-5.072c-0.081-0.047-0.189-0.047-0.271,0 L3.075,6.68C2.99,6.729,2.936,6.825,2.936,6.921v10.15c0,0.097,0.054,0.189,0.139,0.235l2.409,1.392 c1.307,0.654,2.108-0.116,2.108-0.89V7.787c0-0.142,0.114-0.253,0.256-0.253h1.115c0.139,0,0.255,0.112,0.255,0.253v10.021 c0,1.745-0.95,2.745-2.604,2.745c-0.508,0-0.909,0-2.026-0.551L2.28,18.675c-0.57-0.329-0.922-0.945-0.922-1.604V6.921 c0-0.659,0.353-1.275,0.922-1.603l8.795-5.082c0.557-0.315,1.296-0.315,1.848,0l8.794,5.082c0.57,0.329,0.924,0.944,0.924,1.603 v10.15c0,0.659-0.354,1.273-0.924,1.604l-8.794,5.078C12.643,23.916,12.324,24,11.998,24z M19.099,13.993 c0-1.9-1.284-2.406-3.987-2.763c-2.731-0.361-3.009-0.548-3.009-1.187c0-0.528,0.235-1.233,2.258-1.233 c1.807,0,2.473,0.389,2.747,1.607c0.024,0.115,0.129,0.199,0.247,0.199h1.141c0.071,0,0.138-0.031,0.186-0.081 c0.048-0.054,0.074-0.123,0.067-0.196c-0.177-2.098-1.571-3.076-4.388-3.076c-2.508,0-4.004,1.058-4.004,2.833 c0,1.925,1.488,2.457,3.895,2.695c2.88,0.282,3.103,0.703,3.103,1.269c0,0.983-0.789,1.402-2.642,1.402 c-2.327,0-2.839-0.584-3.011-1.742c-0.02-0.124-0.126-0.215-0.253-0.215h-1.137c-0.141,0-0.254,0.112-0.254,0.253 c0,1.482,0.806,3.248,4.655,3.248C17.501,17.007,19.099,15.91,19.099,13.993z"/>
+            </svg>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- ABOUT SECTION (3-column grid)                                           -->
+    <!-- ======================================================================= -->
+    <section id="about" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="about-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start">
+          
+          <!-- Column 1: Heading "About me" on the left -->
+          <div class="reveal-left md:col-span-1">
+            <h2 id="about-heading" class="heading-accent text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+              About me
+            </h2>
+            <figure class="mt-8 overflow-hidden rounded-3xl border border-slate-200/80 bg-slate-50 shadow-sm">
+              <img
+                src="./john-paulo-about.jpg"
+                alt="John Paulo Mendez"
+                class="block h-auto w-full object-contain"
+                loading="lazy"
+                decoding="async"
+              >
+            </figure>
+          </div>
+
+          <!-- Columns 2 & 3: Two short paragraphs on the right in a card -->
+          <div class="reveal-right md:col-span-2">
+            <div class="bg-slate-50/70 border border-slate-200/80 rounded-3xl p-8 sm:p-10 shadow-sm space-y-5 text-slate-600 text-base sm:text-lg leading-relaxed">
+              <p>
+                I started coding because I thought hacking was cool, and I still do. That curiosity about how things work, and how they break, turned into a habit of fixing what doesn't work and building solutions for real problems.
+              </p>
+              <p>
+                I'm a student developer working across the full stack. I build interfaces with React and Flutter, and back ends with Node.js and Python. I care about writing clean, fast code and making products that feel easy to use from the first click. I'm also interested in security, and I'm learning how to build apps that are safer by design.
+              </p>
+              <p>
+                I'm a quick learner who picks up new tools by building with them. I use AI as a learning partner and productivity tool, it helps me understand unfamiliar concepts, debug faster, and explore different approaches. I always review, test, and make sure I understand the code before it goes into a project.
+              </p>
+              <p>
+                I'm always looking for chances to learn, contribute, and grow alongside a team.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- PROJECTS SECTION (Zigzag layout, 2 columns each)                        -->
+    <!-- ======================================================================= -->
+    <section id="projects" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="projects-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        
+        <!-- Header: Blue label & Main Heading -->
+        <div class="reveal-left mb-14 md:mb-20">
+          <p class="text-brand font-semibold text-sm tracking-wider uppercase mb-2">
+            PORTFOLIO
+          </p>
+          <h2 id="projects-heading" class="heading-accent text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+            Each project is a unique piece of development
+          </h2>
+        </div>
+
+        <!-- Project Rows List -->
+        <div class="space-y-20 md:space-y-28">
+
+          <!-- ----------------------------------------------------------------- -->
+          <!-- PROJECT 1: FELIVET INSIGHT (Image Left, Text Right)              -->
+          <!-- ----------------------------------------------------------------- -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Portrait Screenshot Column -->
+            <div class="reveal-left lg:col-span-7 order-1 flex justify-center">
+              <div class="project-image-card felivet-image-card">
+                <img src="./felivet-insight.jpg" alt="FeliVet Insight app screenshot" class="felivet-picture block w-auto h-[460px] sm:h-[520px] max-w-full object-contain" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Text Column: Centered, Bold Uppercase Title with Icon, Muted Description, Tech Badges, Action Links -->
+            <div class="reveal-right lg:col-span-5 order-2 flex flex-col items-center text-center px-4">
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 uppercase">
+                <span class="inline-flex items-center justify-center gap-2">
+                  <svg class="w-5 h-5 text-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="6" cy="7" r="1.5"/><circle cx="12" cy="5" r="1.5"/><circle cx="18" cy="7" r="1.5"/><path d="M7.5 16.5c0-3.2 2.1-5.5 4.5-5.5s4.5 2.3 4.5 5.5c0 2.2-1.8 3.5-4.5 1.8-2.7 1.7-4.5.4-4.5-1.8Z"/>
+                  </svg>
+                  <span>FELIVET INSIGHT</span>
+                </span>
+              </h3>
+              <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                FeliVet Insight is a mobile application that helps detect possible cat skin diseases. Cat owners can upload photos and document symptoms, with dashboard, status, history, and settings features.
+              </p>
+              
+              <!-- Tech Names in Semi-Bold -->
+              <div class="mt-5 flex flex-wrap justify-center gap-3">
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Dart</span>
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Flutter</span>
+              </div>
+
+              <!-- Action Links: Code & Live Demo -->
+              <div class="mt-6 flex items-center justify-center gap-6">
+                <!-- FeliVet source repository -->
+                <a href="https://github.com/jmmendez-ops/Felivet" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Code</span>
+                  <svg role="img" viewBox="0 0 24 24" width="20" height="20" class="w-5 h-5 fill-current" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                  </svg>
+                </a>
+
+                <!-- FeliVet live demo -->
+                <a href="https://felivetinsight.vercel.app/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Live Demo</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- ----------------------------------------------------------------- -->
+          <!-- PROJECT 2: GARENA CHECKER (Text Left, Image Right on Desktop) -->
+          <!-- On mobile: Image always comes first (order-1 vs order-2)          -->
+          <!-- ----------------------------------------------------------------- -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Image Column: Desktop Right (order-1 lg:order-2) -->
+            <div class="reveal-right lg:col-span-7 order-1 lg:order-2">
+              <div class="project-image-card bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-lg shadow-slate-200/50 aspect-[4/3] relative">
+                <img src="./credstuff-baseline.png" alt="CredStuff Baseline screenshot" class="w-full h-full object-cover rounded-2xl" loading="lazy">
+              </div>
+            </div>
+
+            <!-- Text Column: Desktop Left (order-2 lg:order-1) -->
+            <div class="reveal-left lg:col-span-5 order-2 lg:order-1 flex flex-col items-center text-center px-4">
+              <h3 class="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 uppercase">
+                <span class="inline-flex items-center justify-center gap-2">
+                  <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M12 15v2"/>
+                  </svg>
+                  <span>GARENA CHECKER</span>
+                </span>
+              </h3>
+              <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+                A command-line account checker for Garena that validates email:password combinations and retrieves CODM profile metadata for each valid account. It automates the full login flow end to end, including client-side password encryption and bot-detection clearance.
+              </p>
+
+              <!-- Tech Names in Semi-Bold -->
+              <div class="mt-5 flex flex-wrap justify-center gap-3">
+                <span class="project-tech-tag font-semibold text-xs sm:text-sm px-3.5 py-1.5 bg-slate-100 text-slate-700 border border-slate-200/80 rounded-lg shadow-sm">Python</span>
+              </div>
+
+              <!-- Action Links: Code & Live Demo -->
+              <div class="mt-6 flex items-center justify-center gap-6">
+                <!-- CredStuff Baseline source repository -->
+                <a href="https://github.com/jmmendez-ops/CredStuff_Baseline" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-700 hover:text-brand transition-colors p-1 focus:rounded-md">
+                  <span>Code</span>
+                  <svg role="img" viewBox="0 0 24 24" width="20" height="20" class="w-5 h-5 fill-current" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                  </svg>
+                </a>
+
+                <span class="inline-flex items-center gap-2 font-semibold text-sm sm:text-base text-slate-400 cursor-not-allowed p-1" title="Live demo unavailable; manual setup required">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/>
+                  </svg>
+                  <span>Live Demo unavailable (Manual Setup)</span>
+                </span>
+              </div>
+            </div>
+
+          </article>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- SKILLS SECTION — Tech Stack badge layout with 4 groups                 -->
+    <!-- ======================================================================= -->
+    <section id="skills" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="skills-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+        <!-- Section Heading with laptop icon -->
+        <div class="reveal-left flex items-center gap-3 mb-12 md:mb-16 pb-4 border-b border-slate-200/80">
+          <svg class="w-7 h-7 text-brand" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 20h20"/>
+          </svg>
+          <h2 id="skills-heading" class="heading-accent text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            Tech Stack
+          </h2>
+        </div>
+
+        <!-- Helper: shared badge style via inline styles — colored pill with icon + label -->
+        <div class="space-y-10">
+
+          <!-- ── Languages & Markup ── -->
+          <div class="reveal-left">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Languages &amp; Markup</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- Python #3776AB -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#3776AB;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11.858 0c-.978.005-1.913.088-2.736.234C6.7.662 6.26 1.558 6.26 3.21v2.182h5.725v.727H4.111c-1.664 0-3.121 1-3.577 2.903-.526 2.181-.549 3.542 0 5.82.407 1.694 1.379 2.902 3.043 2.902h1.969v-2.616c0-1.89 1.635-3.557 3.576-3.557h5.72c1.591 0 2.862-1.31 2.862-2.91v-5.45c0-1.553-1.309-2.718-2.863-2.977A18 18 0 0 0 11.858 0M8.762 1.755c.591 0 1.074.491 1.074 1.095 0 .601-.483 1.087-1.074 1.087A1.08 1.08 0 0 1 7.688 2.85c0-.604.48-1.095 1.074-1.095m9.656 4.364v2.543c0 1.971-1.671 3.63-3.577 3.63H9.122c-1.566 0-2.862 1.34-2.862 2.91v5.452c0 1.551 1.349 2.464 2.862 2.91 1.813.532 3.55.628 5.72 0 1.44-.418 2.862-1.258 2.862-2.91V18.47h-5.719v-.727h8.582c1.664 0 2.284-1.16 2.862-2.903.598-1.793.573-3.518 0-5.819-.41-1.656-1.196-2.903-2.862-2.903zm-3.216 13.807a1.08 1.08 0 0 1 1.074 1.088c0 .604-.48 1.094-1.074 1.094-.592 0-1.075-.49-1.075-1.094 0-.601.483-1.088 1.075-1.088"/></svg>
+                  Python
+                </span>
+              </li>
+
+              <!-- Dart #0175C2 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#0175C2;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.105 4.105S9.158 1.58 11.684.316a3.079 3.079 0 0 1 1.481-.315c.766.047 1.677.788 1.677.788L24 9.948v9.789h-4.263V24H9.789l-9-9C.303 14.5 0 13.795 0 13.105c0-.319.18-.818.316-1.105l3.789-7.895zm.679.679v11.787c.002.543.021 1.024.498 1.508L10.204 23h8.533v-4.263L4.784 4.784zm12.055-.678c-.899-.896-1.809-1.78-2.74-2.643-.302-.267-.567-.468-1.07-.462-.37.014-.87.195-.87.195L6.341 4.105l10.498.001z"/></svg>
+                  Dart
+                </span>
+              </li>
+
+              <!-- JavaScript #F7DF1E / black text -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-black text-xs font-bold uppercase tracking-wide" style="background:#F7DF1E;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect width="24" height="24" fill="#F7DF1E"/><path fill="#000" d="M22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
+                  JavaScript
+                </span>
+              </li>
+
+              <!-- HTML5 #E34F26 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#E34F26;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
+                  HTML5
+                </span>
+              </li>
+
+              <!-- CSS3 #1572B6 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#1572B6;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
+                  CSS3
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- ── Frameworks & Libraries ── -->
+          <div class="reveal-right">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Frameworks &amp; Libraries</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- TensorFlow #FF6F00 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#FF6F00;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M1.292 5.856L11.54 0v24l-4.095-2.378V7.603l-6.168 3.564.015-5.311zm21.43 5.311l-.014-5.31L12.46 0v24l4.095-2.378V14.87l3.092 1.788-.018-4.618-3.074-1.756V7.603l6.168 3.564z"/></svg>
+                  TensorFlow
+                </span>
+              </li>
+
+              <!-- NumPy #4DABCF -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#4DABCF;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11.372.903L6.278 3.78l5.147 2.973 5.182-2.973zm-.297 6.396L6.03 4.325v5.95l5.044 2.912zm.671 0v6.788l5.056-2.912V4.325zM5.359 4.831L.265 7.708l5.147 2.974 5.182-2.974zm-.298 6.396L.016 8.253v5.95l5.044 2.912zm.671 0v6.788l5.057-2.912V8.253zm5.934-1.09l-5.044 2.9v5.95l5.044-2.9zm.67.014v5.837l5.057-2.9v-5.95z"/></svg>
+                  NumPy
+                </span>
+              </li>
+
+              <!-- Pandas #150458 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#150458;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8.42 0h2.192v5.587l2.558-2.165V0h2.19v3.818l1.46-1.235V0h1.907v1.526l.44-.373V0H21.1v.44l-11.9 10.08v3.096l11.9-10.08v1.213l-11.9 10.08v3.097l11.9-10.08v1.213L9.2 19.14v3.097L21.1 12.157v1.213L9.2 23.45v.55h-2.19v-3.636L4.45 22.6V24H2.544v-3.818l-1.46 1.236V24H.176v-1.527l-.176.15V24H0v-.44L8.42 16.6v-3.096L0 20.584v-1.212L8.42 12.37V9.273L0 16.274v-1.213L8.42 8.06V4.963L0 11.964v-1.213L8.42 3.75V0z"/></svg>
+                  Pandas
+                </span>
+              </li>
+
+              <!-- Flutter #02569B -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#02569B;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z"/></svg>
+                  Flutter
+                </span>
+              </li>
+
+              <!-- React #20232A dark -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#20232A;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="#61DAFB" aria-hidden="true"><path d="M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38-.318-.184-.688-.277-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.318-1.37-.5-1.732-.737-2.852-1.706-2.852-2.474 0-.768 1.12-1.742 2.852-2.476.42-.18.88-.342 1.356-.494zm11.678 4.28c.265.657.49 1.312.676 1.948-.64.157-1.316.29-2.016.39.24-.375.48-.762.705-1.158.225-.39.435-.788.636-1.18zm-9.945.02c.2.392.41.783.64 1.175.23.39.465.772.705 1.143-.695-.102-1.365-.23-2.006-.386.18-.63.406-1.282.66-1.933zM17.92 16.32c.112.493.2.968.254 1.423.23 1.868-.054 3.32-.714 3.708-.147.09-.338.128-.563.128-1.012 0-2.514-.807-4.11-2.28.686-.72 1.37-1.536 2.02-2.44 1.107-.118 2.154-.3 3.113-.54zm-11.83.01c.96.234 2.006.415 3.107.532.66.905 1.345 1.727 2.035 2.446-1.595 1.483-3.092 2.295-4.11 2.295-.22-.005-.406-.05-.553-.132-.666-.38-.955-1.834-.73-3.703.054-.46.142-.944.25-1.438zm4.56.64c.44.02.89.034 1.345.034.46 0 .915-.01 1.36-.034-.44.572-.895 1.095-1.345 1.565-.455-.47-.91-.993-1.36-1.565z"/></svg>
+                  React
+                </span>
+              </li>
+
+              <!-- Node.js #5FA04E -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#5FA04E;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.604.065-.037.151-.023.218.017l2.256 1.339c.082.045.197.045.272 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.053-.192-.137-.242l-8.791-5.072c-.081-.047-.189-.047-.271 0L3.075 6.68C2.99 6.729 2.936 6.825 2.936 6.921v10.15c0 .097.054.189.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675c-.57-.329-.922-.945-.922-1.604V6.921c0-.659.353-1.275.922-1.603l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924.944.924 1.603v10.15c0 .659-.354 1.273-.924 1.604l-8.794 5.078C12.643 23.916 12.324 24 11.998 24z"/></svg>
+                  Node.js
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- ── Databases ── -->
+          <div class="reveal-left">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Databases</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- MySQL #4479A1 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#4479A1;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16.405 5.501c-.115 0-.193.014-.274.033v.013h.014c.054.104.146.18.214.274.054.107.1.214.154.32l.014-.015c.094-.066.14-.172.14-.333-.04-.047-.046-.094-.062-.14-.03-.067-.094-.1-.2-.152zm3.822 4.638c-.07-.03-.143-.06-.214-.076a4.76 4.76 0 0 0-.827-.06c-.38 0-.65.055-.88.154-.232.1-.386.247-.524.42l-.06.1c-.137.2-.19.413-.19.642 0 .268.07.496.19.683.123.19.293.342.496.42.19.08.41.11.638.11.263 0 .498-.047.713-.145l-.024-.024-.024-.025c-.19.1-.41.145-.638.145-.218 0-.42-.034-.605-.1-.19-.067-.353-.184-.484-.345-.13-.162-.19-.37-.19-.638 0-.22.047-.408.145-.578.1-.168.247-.303.44-.395.19-.094.42-.14.666-.14.278 0 .525.052.748.154.054.03.107.055.16.08.03-.01.054-.023.08-.03.1-.034.19-.057.267-.08l.012-.01c.067-.03.123-.07.17-.12.013-.013.013-.03.013-.047 0-.034-.013-.06-.033-.08zm-7.37-4.47c-.19 0-.363.01-.52.047-.168.04-.307.1-.42.18l-.067.055c-.12.1-.214.218-.28.355-.07.138-.1.3-.1.483 0 .222.055.422.167.59.112.167.274.308.483.408.21.1.46.15.737.15.274 0 .512-.05.712-.15.2-.1.36-.238.47-.405.11-.168.168-.368.168-.59 0-.22-.06-.408-.168-.578a1.08 1.08 0 0 0-.46-.395 1.46 1.46 0 0 0-.724-.15zm7.95 2.65c-.16-.112-.35-.19-.568-.234-.218-.047-.455-.07-.713-.07h-1.98v.714h1.978c.202 0 .388.016.558.052.168.034.308.093.422.18.1.08.182.185.228.308.047.12.07.268.07.44 0 .168-.023.316-.07.44a.816.816 0 0 1-.228.316c-.112.08-.25.137-.412.17-.16.034-.345.052-.556.052h-1.978v2.57h-.742V9.51h2.72c.303 0 .58.027.828.08.247.055.464.147.65.274.183.127.33.288.432.484.1.195.154.43.154.7 0 .314-.07.58-.21.797zM7.34 10.51h-.764v3.72h.764v-3.72zm7.714-5.003c-.232 0-.45.03-.65.09-.2.06-.376.148-.524.263a1.19 1.19 0 0 0-.346.432c-.082.17-.12.37-.12.598 0 .253.05.47.15.65.1.182.237.33.407.44.17.112.37.19.598.237.228.047.47.07.724.07.248 0 .476-.023.683-.07a1.65 1.65 0 0 0 .554-.214c.155-.1.278-.23.37-.396.093-.165.138-.368.138-.608 0-.232-.047-.43-.138-.598a1.19 1.19 0 0 0-.37-.432 1.65 1.65 0 0 0-.556-.263 2.46 2.46 0 0 0-.72-.1zM7.34 9.51h-.764v.714h.764V9.51zM24 10.78c0 5.934-5.372 10.74-12 10.74S0 16.714 0 10.78 5.372.04 12 .04 24 4.847 24 10.78zm-7.556-5.65a3.4 3.4 0 0 0-1.063-.688 3.564 3.564 0 0 0-1.316-.237c-.467 0-.893.08-1.274.237a2.986 2.986 0 0 0-.993.665c-.278.284-.49.617-.636.994a3.37 3.37 0 0 0-.224 1.233c0 .45.077.86.224 1.228.148.368.36.69.636.957.278.267.612.47.993.613.382.143.808.213 1.274.213.47 0 .9-.07 1.288-.213a3.19 3.19 0 0 0 1.015-.613c.284-.267.504-.59.66-.957.154-.368.232-.778.232-1.228 0-.455-.078-.866-.232-1.233a2.853 2.853 0 0 0-.584-.97zm-9.788 2.46H4.898v3.72h.758v-1.49h2.976v1.49h.758V7.59h-.758v1.715H5.656V7.59zm10.9 1.9a3.07 3.07 0 0 0-.67-.598 3.195 3.195 0 0 0-.89-.37 4.17 4.17 0 0 0-1.063-.13h-2.16v5.07h2.16c.388 0 .743-.047 1.063-.14.32-.093.6-.234.84-.42.24-.185.428-.42.564-.703.138-.285.207-.618.207-.998 0-.368-.07-.694-.207-.972a2.137 2.137 0 0 0-.564-.736zm-.4 2.986c-.1.22-.244.4-.43.544-.185.144-.408.25-.666.316a3.42 3.42 0 0 1-.89.1h-1.37V8.3h1.37c.32 0 .614.034.89.1.258.067.48.174.666.32.185.146.33.333.43.558.1.225.15.49.15.797 0 .307-.05.573-.15.8z"/></svg>
+                  MySQL
+                </span>
+              </li>
+
+              <!-- MariaDB #003545 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#003545;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M22.667 0c-.83.056-1.86.98-2.924 2.68-.368.587-.713 1.26-1.013 1.994l-.11.313c-.085.247-.162.5-.238.747-.034.113-.066.225-.1.337-1.52.56-2.9 1.456-3.95 2.6-.65.715-1.14 1.49-1.47 2.3-.067.17-.13.343-.187.517-.024.077-.047.154-.07.233a6.6 6.6 0 0 0-.187 1.3c0 .046-.003.09-.003.137 0 .4.038.787.11 1.16l.027.14c.37 1.74 1.52 3.17 3.06 3.95l.08.04c.07.034.14.064.21.094.47.197.973.316 1.5.343l.133.004c.166.005.334.004.5-.003l.1-.006c.293-.023.58-.07.863-.143.1-.024.2-.053.3-.083.066-.02.133-.043.197-.066a7.5 7.5 0 0 0 1.6-.816c.164-.11.32-.226.472-.348.062-.05.123-.1.183-.152 1.413-1.213 2.213-2.98 2.213-5.1v-.066c0-.11-.004-.22-.01-.33-.003-.067-.008-.133-.013-.2a7.72 7.72 0 0 0-.066-.58c-.007-.046-.015-.092-.023-.138a7.3 7.3 0 0 0-.147-.65l-.03-.1c-.06-.19-.126-.375-.2-.557-.03-.075-.062-.15-.094-.224a6.4 6.4 0 0 0-.317-.6c-.03-.05-.063-.1-.094-.15-.082-.13-.17-.256-.262-.38l-.056-.074c-.113-.146-.232-.287-.358-.422l-.013-.013c.016-.104.03-.213.047-.326l.016-.126c.055-.46.1-.985.113-1.56.003-.077.004-.155.004-.233 0-.29-.01-.59-.033-.9L22.667 0zM2.44 7.43c-.056 0-.112.003-.168.007l-.134.012c-1.21.14-2.14 1.17-2.14 2.4 0 1.325 1.07 2.4 2.4 2.4.1 0 .194-.007.29-.02.077-.01.153-.024.228-.04 1.03-.23 1.8-1.14 1.8-2.24 0-1.26-1.02-2.28-2.28-2.28v-.24z"/></svg>
+                  MariaDB
+                </span>
+              </li>
+
+              <!-- PostgreSQL #336791 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#336791;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2C7.58 2 4 3.79 4 6v12c0 2.21 3.58 4 8 4s8-1.79 8-4V6c0-2.21-3.58-4-8-4zm0 2c3.31 0 6 1.12 6 2.5S15.31 9 12 9 6 7.88 6 6.5 8.69 4 12 4zm0 16c-3.31 0-6-1.12-6-2.5v-2.08C7.8 16.43 9.75 17 12 17s4.2-.57 6-1.58V17.5c0 1.38-2.69 2.5-6 2.5zm0-5c-3.31 0-6-1.12-6-2.5v-2.08C7.8 11.43 9.75 12 12 12s4.2-.57 6-1.58V12.5C18 13.88 15.31 15 12 15z"/>
+                  </svg>
+                  PostgreSQL
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- ── Tools ── -->
+          <div class="reveal-right">
+            <h3 class="font-bold text-lg text-slate-900 mb-4">Tools</h3>
+            <ul class="flex flex-wrap gap-3" role="list">
+
+              <!-- Git #F05032 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#F05032;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.658 2.66c.645-.223 1.387-.078 1.9.435.721.72.721 1.884 0 2.604-.719.719-1.881.719-2.6 0-.539-.541-.674-1.337-.404-1.996L12.86 8.955v6.525c.176.086.342.203.488.348.713.721.713 1.883 0 2.6-.719.721-1.889.721-2.609 0-.719-.719-.719-1.879 0-2.598.182-.18.387-.316.605-.406V8.835c-.217-.091-.424-.222-.6-.401-.545-.545-.676-1.342-.396-2.009L7.636 3.7.45 10.881c-.6.605-.6 1.584 0 2.189l10.48 10.477c.604.604 1.582.604 2.186 0l10.43-10.43c.605-.603.605-1.582 0-2.187"/></svg>
+                  Git
+                </span>
+              </li>
+
+              <!-- GitHub #181717 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#181717;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                  GitHub
+                </span>
+              </li>
+
+              <!-- VS Code #007ACC -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#007ACC;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg>
+                  VS Code
+                </span>
+              </li>
+
+              <!-- Antigravity #4285F4 Google Blue -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#4285F4;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#fff"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#fff"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#fff"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#fff"/></svg>
+                  Antigravity
+                </span>
+              </li>
+
+              <!-- Termux #000000 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#000000;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M2 3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h20a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2zm1 2h18v14H3V5zm2.586 2L4.172 8.414 7.758 12l-3.586 3.586L5.586 17 11 11.586V12.4L5.586 7zm7.414 7v2h6v-2h-6z"/></svg>
+                  Termux
+                </span>
+              </li>
+
+              <!-- Android Studio #3DDC84 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#3DDC84;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M17.523 15.341a.95.95 0 0 1-.95.95H7.427a.95.95 0 0 1-.95-.95V9.19c0-.524.426-.95.95-.95h9.147c.523 0 .95.426.95.95v6.15zm-1.58-5.52H8.058v4.57h7.885v-4.57zm-5.78-3.56a.46.46 0 1 1-.92 0 .46.46 0 0 1 .92 0zm3.673 0a.46.46 0 1 1-.92 0 .46.46 0 0 1 .92 0zM6.65 2.47L5.19 1.01 4.13 2.07l1.46 1.46A9.846 9.846 0 0 0 2.1 11.1h19.8a9.846 9.846 0 0 0-3.49-7.57l1.46-1.46-1.06-1.06-1.46 1.46A9.794 9.794 0 0 0 12 1.1c-1.93 0-3.72.56-5.35 1.37zM2.1 12.9C2.1 18.428 6.573 23 12 23s9.9-4.572 9.9-10.1H2.1z"/></svg>
+                  Android Studio
+                </span>
+              </li>
+
+              <!-- Figma #F24E1E -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#A259FF;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019h-3.117zm-6.609 7.019c0-2.476 2.014-4.49 4.49-4.49h4.588v8.981h-4.588c-2.476 0-4.49-2.015-4.49-4.491zm1.471 0c0 1.665 1.355 3.019 3.019 3.019h3.117v-6.038h-3.117c-1.664 0-3.019 1.355-3.019 3.019zm6.136-11.51h-4.588C6.146 3 4.132 1.015 4.132-.49 4.132-2.976 6.146-5 8.622-5h4.588c2.476 0 4.49 2.015 4.49 4.49 0 2.477-2.014 4.49-4.49 4.49zm-4.588-1.471h4.588c1.665 0 3.019-1.355 3.019-3.019s-1.354-3.019-3.019-3.019H9.145c-1.664 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019zM8.667 24c-2.476 0-4.49-2.015-4.49-4.491s2.014-4.49 4.49-4.49h4.588v4.49c0 2.476-2.014 4.491-4.588 4.491zm0-7.51c-1.664 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019c1.665 0 3.019-1.355 3.019-3.019v-3.019H8.667z"/></svg>
+                  Figma
+                </span>
+              </li>
+
+              <!-- Postman #FF6C37 -->
+              <li>
+                <span class="skill-badge inline-flex items-center gap-2 px-4 py-2 rounded-lg text-white text-xs font-bold uppercase tracking-wide" style="background:#FF6C37;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M13.527.099C6.955-.744.942 3.9.099 10.473c-.843 6.572 3.8 12.584 10.373 13.428 6.573.843 12.587-3.801 13.428-10.374C24.744 6.955 20.101.943 13.527.099zm2.471 7.485a.855.855 0 0 0-.593.25l-4.453 4.453-.307-.307-.643-.643 4.453-4.453a.858.858 0 1 0-1.215-1.215l-4.453 4.453-.308-.308 4.454-4.453a1.714 1.714 0 0 1 2.431 2.422zm-8.057 7.17l-1.14-1.14 5.235-5.235.57.571.569.569-5.234 5.235zm1.665 1.237l-.95-.95 5.11-5.11.95.95-5.11 5.11zm4.682 2.371a3.584 3.584 0 0 1-2.527-1.048l-.023-.023a3.587 3.587 0 0 1-1.048-2.527 3.573 3.573 0 0 1 1.048-2.526l.023-.022 2.573 2.573-.516.516a1.429 1.429 0 0 0 1.47 2.057zm3.088-3.11a1.428 1.428 0 0 0-2.056-1.47l-.516.515-2.572-2.573a3.544 3.544 0 0 1 2.526-1.049 3.588 3.588 0 0 1 2.527 6.112l-.023.023a3.572 3.572 0 0 1-2.527 1.048 3.544 3.544 0 0 1-1.048-.156l1.473-1.473.216-2.977z"/></svg>
+                  Postman
+                </span>
+              </li>
+
+            </ul>
+          </div>
+
+        </div><!-- /space-y-10 -->
+      </div>
+    </section>
+
+    <!-- ======================================================================= -->
+    <!-- CONTACT SECTION                                                           -->
+    <!-- ======================================================================= -->
+    <section id="contact" class="py-20 md:py-28 border-t border-slate-200/80" aria-labelledby="contact-heading">
+      <div class="max-w-6xl mx-auto px-6 lg:px-8">
+        
+        <!-- Large Rounded Glass Card -->
+        <div class="reveal-up bg-gradient-to-b from-blue-50/70 via-white to-slate-50/80 border border-slate-200/90 text-slate-900 rounded-3xl p-10 sm:p-14 md:p-20 text-center shadow-xl shadow-slate-200/50 relative overflow-hidden">
+          
+          <!-- Heading "Let's talk" -->
+          <h2 id="contact-heading" class="heading-accent text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-slate-900 mb-5">
+            Let's talk
+          </h2>
+
+          <!-- One line about being open to frontend roles and freelance work -->
+          <p class="text-slate-600 text-base sm:text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+            I'm currently open to full-time Web/App Developer roles and select freelance opportunities.
+          </p>
+
+          <!-- Contact Action Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <!-- Open Gmail Compose Button -->
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=paupau092726@gmail.com" target="_blank" rel="noopener noreferrer" class="email-cta-btn inline-flex items-center gap-3 bg-brand hover:bg-blue-600 text-white font-semibold text-base sm:text-lg px-8 sm:px-10 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-lg shadow-brand/25 hover:scale-105 focus:rounded-full" title="Compose in Gmail">
+              <!-- Mail icon -->
+              <svg class="w-5 h-5 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+              </svg>
+              <span>paupau092726@gmail.com</span>
+            </a>
+
+            <!-- Quick Copy Button -->
+            <button id="copy-email-btn" type="button" class="inline-flex items-center gap-2.5 bg-slate-800/80 hover:bg-slate-700/80 text-cyan-300 hover:text-white font-medium text-base px-6 sm:px-7 py-3.5 sm:py-4 rounded-full border border-cyan-500/30 hover:border-cyan-400 transition-all duration-300 shadow-md hover:scale-105" title="Copy email address to clipboard">
+              <svg id="copy-icon" class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+              </svg>
+              <svg id="copied-icon" class="w-4 h-4 fill-none stroke-emerald-400 hidden" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+              <span id="copy-text">Copy</span>
+            </button>
+          </div>
+
+          <!-- Secondary mailto link -->
+          <p class="mt-4 text-xs text-slate-400">
+            Opens directly in Gmail. Or launch your desktop <a href="mailto:paupau092726@gmail.com" class="text-cyan-400 underline hover:text-cyan-300 transition-colors">mail client</a>.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="border-t border-slate-200/80 py-10 text-center bg-slate-50/80 relative z-10">
+    <p class="text-xs sm:text-sm text-slate-500 font-medium">
+      &copy; 2026 John Paulo Mendez. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- CLIENT JAVASCRIPT — Object-Oriented Architecture (OOP)                    -->
+  <!-- ========================================================================= -->
+  <script>
+    /**
+     * HeadingGradientController
+     * Manages per-letter color interpolation across high-contrast gradient stops
+     */
+    class HeadingGradientController {
+      constructor(selector = '.interactive-letter') {
+        this.letters = document.querySelectorAll(selector);
+        // Space theme letter gradient ramp: #FFFFFF to #9DBBFF
+        this.stops = [
+          { t: 0.00, r: 255, g: 255, b: 255 }, // #FFFFFF
+          { t: 1.00, r: 157, g: 187, b: 255 }  // #9DBBFF
+        ];
+      }
+
+      init() {
+        if (!this.letters.length) return;
+        this.render();
+      }
+
+      render() {
+        const count = this.letters.length;
+        this.letters.forEach((letter, i) => {
+          const factor = i / (count - 1 || 1);
+          const color = this.interpolate(factor);
+          letter.style.color = color;
+          letter.style.webkitTextFillColor = color;
+        });
+      }
+
+      interpolate(factor) {
+        let s0 = this.stops[0];
+        let s1 = this.stops[this.stops.length - 1];
+        for (let j = 0; j < this.stops.length - 1; j++) {
+          if (factor >= this.stops[j].t && factor <= this.stops[j + 1].t) {
+            s0 = this.stops[j];
+            s1 = this.stops[j + 1];
+            break;
+          }
+        }
+        const local = (factor - s0.t) / (s1.t - s0.t || 1);
+        const r = Math.round(s0.r + (s1.r - s0.r) * local);
+        const g = Math.round(s0.g + (s1.g - s0.g) * local);
+        const b = Math.round(s0.b + (s1.b - s0.b) * local);
+        return 'rgb(' + r + ', ' + g + ', ' + b + ')';
+      }
+    }
+
+    /**
+     * ScrollRevealController
+     * Handles viewport intersection observer animations and reduced-motion preferences
+     */
+    class ScrollRevealController {
+      constructor(selector = '.reveal, .reveal-left, .reveal-right, .reveal-up, .reveal-pop') {
+        this.elements = document.querySelectorAll(selector);
+        this.motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        this.observer = null;
+      }
+
+      init() {
+        if (!this.elements.length) return;
+        this.bindEvents();
+        this.evaluate();
+      }
+
+      bindEvents() {
+        if (typeof this.motionQuery.addEventListener === 'function') {
+          this.motionQuery.addEventListener('change', () => this.evaluate());
+        }
+      }
+
+      evaluate() {
+        if (this.motionQuery.matches) {
+          this.revealAll();
+        } else {
+          this.createObserver();
+        }
+      }
+
+      revealAll() {
+        this.elements.forEach(el => el.classList.add('is-revealed'));
+      }
+
+      createObserver() {
+        if (!('IntersectionObserver' in window)) {
+          this.revealAll();
+          return;
+        }
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            entry.target.classList.toggle('is-revealed', entry.isIntersecting);
+          });
+        }, {
+          root: null,
+          rootMargin: '0px 0px -50px 0px',
+          threshold: 0.15
+        });
+
+        this.elements.forEach(el => this.observer.observe(el));
+      }
+    }
+
+    /**
+     * AvatarTiltController
+     * Controls 3D tilt variables (--tx, --ty) on .bh-tilt based on pointer position
+     */
+    class AvatarTiltController {
+      constructor(containerId = 'jpm-avatar-card', tiltSelector = '.bh-tilt') {
+        this.container = document.getElementById(containerId);
+        this.tilt = this.container ? this.container.querySelector(tiltSelector) : null;
+        this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.isTouch = window.matchMedia('(pointer: coarse)').matches && !window.matchMedia('(pointer: fine)').matches;
+        this._rafId = null;
+        this._targetTx = 0;
+        this._targetTy = 0;
+      }
+
+      init() {
+        if (!this.container || !this.tilt || this.reducedMotion || this.isTouch) return;
+        this.container.addEventListener('mousemove', (e) => this.onMove(e));
+        this.container.addEventListener('mouseleave', () => this.onLeave());
+      }
+
+      onMove(e) {
+        const rect = this.container.getBoundingClientRect();
+        // px and py are pointer offset from center in range -0.5 to 0.5
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        this._targetTx = -(py) * 18;
+        this._targetTy = (px) * 24;
+
+        if (!this._rafId) {
+          this._rafId = requestAnimationFrame(() => {
+            if (this.tilt) {
+              this.tilt.style.setProperty('--tx', `${this._targetTx.toFixed(2)}deg`);
+              this.tilt.style.setProperty('--ty', `${this._targetTy.toFixed(2)}deg`);
+            }
+            this._rafId = null;
+          });
+        }
+      }
+
+      onLeave() {
+        if (this._rafId) {
+          cancelAnimationFrame(this._rafId);
+          this._rafId = null;
+        }
+        if (this.tilt) {
+          this.tilt.style.setProperty('--tx', '0deg');
+          this.tilt.style.setProperty('--ty', '0deg');
+        }
+      }
+    }
+
+    /**
+     * SmoothNavigationController
+     * Handles accessible smooth scrolling for internal section links
+     */
+    class SmoothNavigationController {
+      constructor(selector = 'a[href^="#"]') {
+        this.links = document.querySelectorAll(selector);
+      }
+
+      init() {
+        this.links.forEach(link => {
+          link.addEventListener('click', (e) => {
+            const hash = link.getAttribute('href');
+            if (!hash || hash === '#' || !hash.startsWith('#')) return;
+            const target = document.querySelector(hash);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              history.pushState(null, '', hash);
+            }
+          });
+        });
+      }
+    }
+
+    // =========================================================================
+    // SpaceEffectsController — twinkling stars, supernovae & gravity warp
+    // =========================================================================
+
+    /** A single twinkling star drawn on the canvas */
+    class Star {
+      static COLORS = ['#ffffff', '#bae6fd', '#fde68a', '#f5d0fe'];
+
+      constructor(canvasW, canvasH) {
+        this._randomize(canvasW, canvasH);
+      }
+
+      _randomize(w, h) {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.baseRadius = 0.6 + Math.random() * 1.8;
+        this.color = Star.COLORS[Math.floor(Math.random() * Star.COLORS.length)];
+        this.twinkleSpeed = 0.4 + Math.random() * 1.6;
+        this.phase = Math.random() * Math.PI * 2;
+        this.brightness = 0.25 + Math.random() * 0.75;
+      }
+
+      update(dt) {
+        this.phase += this.twinkleSpeed * dt;
+        this.brightness = 0.625 + 0.375 * Math.sin(this.phase);
+      }
+
+      draw(ctx) {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, Math.min(1, this.brightness));
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.baseRadius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    /** An explosion particle */
+    class Particle {
+      static COLORS = ['#67E8F9', '#A78BFA', '#FB923C', '#ffffff'];
+
+      constructor(x, y) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = 60 + Math.random() * 220;
+        this.x = x;
+        this.y = y;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.radius = 0.8 + Math.random() * 2.4;
+        this.color = Particle.COLORS[Math.floor(Math.random() * Particle.COLORS.length)];
+        this.friction = 0.88;
+        this.maxLife = 0.55 + Math.random() * 0.45;
+        this.life = this.maxLife;
+      }
+
+      get alive() { return this.life > 0; }
+
+      update(dt) {
+        this.vx *= this.friction;
+        this.vy *= this.friction;
+        this.x += this.vx * dt;
+        this.y += this.vy * dt;
+        this.life -= dt;
+      }
+
+      draw(ctx) {
+        const alpha = Math.max(0, this.life / this.maxLife);
+        ctx.save();
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    /** An expanding shockwave ring that warps nearby DOM elements */
+    class Shockwave {
+      static WAVE_SPEED    = 600;   // px/s
+      static MAX_RADIUS    = 520;   // px
+      static DURATION      = 1.2;   // s
+      static WARP_RANGE    = 90;    // px from ring edge
+      static MAX_TRANSLATE = 14;    // px
+      static MAX_SCALE     = 1.06;
+
+      constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.radius = 0;
+        this.life = Shockwave.DURATION;
+        this.maxLife = Shockwave.DURATION;
+      }
+
+      get alive() { return this.life > 0 && this.radius <= Shockwave.MAX_RADIUS; }
+
+      update(dt) {
+        this.radius += Shockwave.WAVE_SPEED * dt;
+        this.life -= dt;
+      }
+
+      draw(ctx) {
+        const progress = 1 - this.life / this.maxLife;
+        const alpha = Math.max(0, (1 - progress) * 0.55);
+        ctx.save();
+        ctx.strokeStyle = `rgba(103,232,249,${alpha})`;
+        ctx.lineWidth = 2;
+        ctx.shadowColor = '#67E8F9';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      /**
+       * Pushes warp-target records for elements near the wavefront.
+       * @param {Array<WarpTarget>} warpTargets
+       */
+      applyWarp(warpTargets) {
+        const { WARP_RANGE, MAX_TRANSLATE, MAX_SCALE } = Shockwave;
+        for (const t of warpTargets) {
+          const dist = Math.hypot(t.cx - this.x, t.cy - this.y);
+          const diff = Math.abs(dist - this.radius);
+          if (diff > WARP_RANGE) continue;
+
+          // Strength 0→1 based on proximity to ring edge
+          const strength = 1 - diff / WARP_RANGE;
+          if (strength < 0.01) continue;
+
+          // Direction: away from explosion center
+          const len = dist || 1;
+          const nx = (t.cx - this.x) / len;
+          const ny = (t.cy - this.y) / len;
+
+          const push = strength * MAX_TRANSLATE;
+          t.dispX += nx * push;
+          t.dispY += ny * push;
+          t.scaleBoost = Math.max(t.scaleBoost || 1, 1 + (MAX_SCALE - 1) * strength);
+        }
+      }
+    }
+
+    /**
+     * WarpTarget — holds a DOM element and its spring physics state
+     */
+    class WarpTarget {
+      constructor(el) {
+        this.el = el;
+        // Cached world-space center (updated on resize/scroll)
+        this.cx = 0;
+        this.cy = 0;
+        // Spring displacement
+        this.dispX = 0;
+        this.dispY = 0;
+        // Current velocity for spring integration
+        this.velX = 0;
+        this.velY = 0;
+        // Scale boost from wave (springs back to 1)
+        this.scaleBoost = 1;
+        this.scaleVel = 0;
+      }
+
+      cacheRect() {
+        const r = this.el.getBoundingClientRect();
+        this.cx = r.left + r.width  / 2 + window.scrollX;
+        this.cy = r.top  + r.height / 2 + window.scrollY;
+      }
+
+      /** Spring physics: k = stiffness, d = damping */
+      integrate(dt, k = 14, damping = 0.72) {
+        // Position spring toward 0
+        this.velX += (-k * this.dispX - damping * this.velX) * dt * 60;
+        this.velY += (-k * this.dispY - damping * this.velY) * dt * 60;
+        this.dispX += this.velX * dt;
+        this.dispY += this.velY * dt;
+
+        // Scale spring toward 1
+        this.scaleVel += (-k * (this.scaleBoost - 1) - damping * this.scaleVel) * dt * 60;
+        this.scaleBoost += this.scaleVel * dt;
+        if (this.scaleBoost < 1) this.scaleBoost = 1;
+      }
+
+      get settled() {
+        return Math.abs(this.dispX) < 0.05
+          && Math.abs(this.dispY) < 0.05
+          && Math.abs(this.velX)  < 0.05
+          && Math.abs(this.velY)  < 0.05
+          && Math.abs(this.scaleBoost - 1) < 0.002;
+      }
+
+      applyStyle() {
+        if (this.settled) {
+          this.el.style.translate = '';
+          this.el.style.scale = '';
+        } else {
+          this.el.style.translate = `${this.dispX.toFixed(2)}px ${this.dispY.toFixed(2)}px`;
+          this.el.style.scale = this.scaleBoost.toFixed(4);
+        }
+      }
+    }
+
+    /**
+     * SpaceEffectsController
+     * Manages twinkling stars on canvas, supernova explosions, and gravity-wave
+     * DOM warping. OOP style matching the existing portfolio controllers.
+     */
+    class SpaceEffectsController {
+      // ── CONFIG (tweak these) ──────────────────────────────────────────────
+      static STAR_COUNT_DESKTOP   = 75;
+      static STAR_COUNT_MOBILE    = 40;
+      static EXPLOSION_INTERVAL_MIN = 4000;  // ms
+      static EXPLOSION_INTERVAL_MAX = 9000;  // ms
+      static MAX_EXPLOSIONS_DESKTOP = 3;
+      static MAX_EXPLOSIONS_MOBILE  = 2;
+      static PARTICLE_COUNT_MIN   = 30;
+      static PARTICLE_COUNT_MAX   = 50;
+      static RERANDOMIZE_INTERVAL = 3000;    // ms: re-randomize a few stars
+      static RERANDOMIZE_COUNT    = 4;
+      static WARP_TARGET_SELECTORS = [
+        '.interactive-letter',
+        'nav[aria-label="Main Navigation"] a',
+        '.flex.items-center.gap-5 a',
+        '.bio-letter',
+        '.heading-accent',
+        'h2', 'h3',
+        '.project-image-card',
+        '.skill-badge',
+        '.project-tech-tag',
+        'ul[aria-label="Core technologies"] > li',
+      ];
+      // ─────────────────────────────────────────────────────────────────────
+
+      constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        this.ctx    = this.canvas ? this.canvas.getContext('2d') : null;
+
+        this.stars      = [];
+        this.particles  = [];
+        this.shockwaves = [];
+        this.warpTargets = [];
+
+        this.isMobile      = window.innerWidth < 768;
+        this.reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        this.maxExplosions = this.isMobile
+          ? SpaceEffectsController.MAX_EXPLOSIONS_MOBILE
+          : SpaceEffectsController.MAX_EXPLOSIONS_DESKTOP;
+
+        this._rafId            = null;
+        this._lastTimestamp    = 0;
+        this._autoExplosionTimer = null;
+        this._rerandomizeTimer   = null;
+        this._resizeTimer        = null;
+        this._scrollTimer        = null;
+        this._hidden           = false;
+      }
+
+      init() {
+        if (!this.canvas || !this.ctx) return;
+
+        this._sizeCanvas();
+        this._createStars();
+        this._cacheWarpTargets();
+        this._startLoop();
+
+        if (!this.reducedMotion) {
+          this._scheduleNextExplosion();
+          this._scheduleRerandomize();
+
+          document.addEventListener('click',     this._onClick.bind(this),    { passive: true });
+          document.addEventListener('touchstart', this._onTouch.bind(this),   { passive: true });
+        }
+
+        window.addEventListener('resize', this._onResize.bind(this));
+        document.addEventListener('visibilitychange', this._onVisibility.bind(this));
+
+        // Throttled scroll: re-cache centers only (rects drift when page scrolls)
+        window.addEventListener('scroll', this._onScroll.bind(this), { passive: true });
+      }
+
+      // ── Canvas sizing ─────────────────────────────────────────────────────
+
+      _sizeCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const w   = window.innerWidth;
+        const h   = window.innerHeight;
+        this.canvas.width  = w * dpr;
+        this.canvas.height = h * dpr;
+        this.canvas.style.width  = w + 'px';
+        this.canvas.style.height = h + 'px';
+        this.ctx.scale(dpr, dpr);
+        this._dpr = dpr;
+        this._vpW = w;
+        this._vpH = h;
+      }
+
+      // ── Stars ─────────────────────────────────────────────────────────────
+
+      _createStars() {
+        const count = this.isMobile
+          ? SpaceEffectsController.STAR_COUNT_MOBILE
+          : SpaceEffectsController.STAR_COUNT_DESKTOP;
+        this.stars = Array.from({ length: count }, () => new Star(this._vpW, this._vpH));
+      }
+
+      _scheduleRerandomize() {
+        this._rerandomizeTimer = setTimeout(() => {
+          if (!this.reducedMotion) {
+            const n = SpaceEffectsController.RERANDOMIZE_COUNT;
+            for (let i = 0; i < n; i++) {
+              const idx = Math.floor(Math.random() * this.stars.length);
+              this.stars[idx]._randomize(this._vpW, this._vpH);
+            }
+          }
+          this._scheduleRerandomize();
+        }, SpaceEffectsController.RERANDOMIZE_INTERVAL);
+      }
+
+      // ── Warp targets ──────────────────────────────────────────────────────
+
+      _cacheWarpTargets() {
+        // Collect all matching elements, deduplicated
+        const seen = new Set();
+        const targets = [];
+        for (const sel of SpaceEffectsController.WARP_TARGET_SELECTORS) {
+          try {
+            document.querySelectorAll(sel).forEach(el => {
+              if (!seen.has(el)) {
+                seen.add(el);
+                el.setAttribute('data-warp', '');
+                const t = new WarpTarget(el);
+                t.cacheRect();
+                targets.push(t);
+              }
+            });
+          } catch (_) { /* skip bad selectors */ }
+        }
+        this.warpTargets = targets;
+      }
+
+      _refreshWarpRects() {
+        for (const t of this.warpTargets) t.cacheRect();
+      }
+
+      // ── Explosions ────────────────────────────────────────────────────────
+
+      _scheduleNextExplosion() {
+        const { EXPLOSION_INTERVAL_MIN, EXPLOSION_INTERVAL_MAX } = SpaceEffectsController;
+        const delay = EXPLOSION_INTERVAL_MIN
+          + Math.random() * (EXPLOSION_INTERVAL_MAX - EXPLOSION_INTERVAL_MIN);
+        this._autoExplosionTimer = setTimeout(() => {
+          const x = 80 + Math.random() * (this._vpW - 160);
+          const y = 80 + Math.random() * (this._vpH - 160);
+          this._triggerExplosion(x, y);
+          this._scheduleNextExplosion();
+        }, delay);
+      }
+
+      _triggerExplosion(x, y) {
+        if (this.shockwaves.filter(s => s.alive).length >= this.maxExplosions) return;
+
+        // Flash: draw a quick bright circle that fades via a particle burst
+        const count = SpaceEffectsController.PARTICLE_COUNT_MIN
+          + Math.floor(Math.random() * (SpaceEffectsController.PARTICLE_COUNT_MAX - SpaceEffectsController.PARTICLE_COUNT_MIN));
+        for (let i = 0; i < count; i++) this.particles.push(new Particle(x, y));
+
+        // Flash particle: large, short-lived, white-yellow
+        const flash = new Particle(x, y);
+        flash.vx = 0; flash.vy = 0;
+        flash.radius = 10 + Math.random() * 12;
+        flash.color  = '#fffde7';
+        flash.friction = 0.70;
+        flash.maxLife = flash.life = 0.22;
+        this.particles.push(flash);
+
+        this.shockwaves.push(new Shockwave(x, y));
+      }
+
+      // ── Event handlers ────────────────────────────────────────────────────
+
+      _onClick(e) {
+        // Let the event propagate; just also trigger explosion
+        const isInteractive = e.target.closest('a, button, input, textarea, select, [role="button"]');
+        this._triggerExplosion(e.clientX, e.clientY);
+      }
+
+      _onTouch(e) {
+        if (e.touches.length === 0) return;
+        this._triggerExplosion(e.touches[0].clientX, e.touches[0].clientY);
+      }
+
+      _onResize() {
+        clearTimeout(this._resizeTimer);
+        this._resizeTimer = setTimeout(() => {
+          this.isMobile = window.innerWidth < 768;
+          this._sizeCanvas();
+          this._createStars();
+          this._cacheWarpTargets();
+        }, 150);
+      }
+
+      _onScroll() {
+        clearTimeout(this._scrollTimer);
+        this._scrollTimer = setTimeout(() => this._refreshWarpRects(), 100);
+      }
+
+      _onVisibility() {
+        this._hidden = document.hidden;
+        if (!this._hidden) {
+          this._lastTimestamp = 0;
+          this._startLoop();
+        }
+      }
+
+      // ── RAF loop ──────────────────────────────────────────────────────────
+
+      _startLoop() {
+        if (this._rafId) return;
+        this._rafId = requestAnimationFrame(ts => this._animate(ts));
+      }
+
+      _animate(timestamp) {
+        if (this._hidden) { this._rafId = null; return; }
+
+        const rawDt = this._lastTimestamp ? (timestamp - this._lastTimestamp) / 1000 : 0;
+        const dt    = Math.min(rawDt, 0.05); // cap at 50 ms to avoid spiral-of-death
+        this._lastTimestamp = timestamp;
+
+        const { ctx, _vpW: W, _vpH: H } = this;
+        ctx.clearRect(0, 0, W, H);
+
+        // Stars
+        const speedMult = this.reducedMotion ? 0.1 : 1;
+        for (const s of this.stars) { s.update(dt * speedMult); s.draw(ctx); }
+
+        if (!this.reducedMotion) {
+          // Particles
+          for (let i = this.particles.length - 1; i >= 0; i--) {
+            const p = this.particles[i];
+            p.update(dt);
+            p.draw(ctx);
+            if (!p.alive) this.particles.splice(i, 1);
+          }
+
+          // Shockwaves: update → apply warp impulse → draw
+          for (let i = this.shockwaves.length - 1; i >= 0; i--) {
+            const sw = this.shockwaves[i];
+            sw.update(dt);
+            sw.applyWarp(this.warpTargets);
+            sw.draw(ctx);
+            if (!sw.alive) this.shockwaves.splice(i, 1);
+          }
+
+          // Spring physics + apply CSS translate/scale
+          for (const t of this.warpTargets) {
+            if (t.dispX !== 0 || t.dispY !== 0 || t.scaleBoost !== 1 ||
+                t.velX !== 0  || t.velY !== 0  || t.scaleVel !== 0) {
+              t.integrate(dt);
+              t.applyStyle();
+            }
+          }
+        }
+
+        this._rafId = requestAnimationFrame(ts => this._animate(ts));
+      }
+    }
+
+    /**
+     * ContactEmailController
+     * Manages copy-to-clipboard interactions with instant visual feedback
+     */
+    class ContactEmailController {
+      constructor() {
+        this.btn = document.getElementById('copy-email-btn');
+        this.copyIcon = document.getElementById('copy-icon');
+        this.copiedIcon = document.getElementById('copied-icon');
+        this.copyText = document.getElementById('copy-text');
+        this.email = 'paupau092726@gmail.com';
+        this._timeout = null;
+      }
+
+      init() {
+        if (!this.btn) return;
+        this.btn.addEventListener('click', () => this.copy());
+      }
+
+      async copy() {
+        try {
+          await navigator.clipboard.writeText(this.email);
+        } catch (_) {
+          const textarea = document.createElement('textarea');
+          textarea.value = this.email;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+        }
+
+        if (this.copyIcon) this.copyIcon.classList.add('hidden');
+        if (this.copiedIcon) this.copiedIcon.classList.remove('hidden');
+        if (this.copyText) this.copyText.textContent = 'Copied!';
+
+        clearTimeout(this._timeout);
+        this._timeout = setTimeout(() => {
+          if (this.copyIcon) this.copyIcon.classList.remove('hidden');
+          if (this.copiedIcon) this.copiedIcon.classList.add('hidden');
+          if (this.copyText) this.copyText.textContent = 'Copy';
+        }, 2000);
+      }
+    }
+
+    /**
+     * PortfolioApp
+     * Master OOP coordinator managing modular controllers
+     */
+    class PortfolioApp {
+      constructor() {
+        this.gradientController = new HeadingGradientController();
+        this.revealController   = new ScrollRevealController();
+        this.tiltController     = new AvatarTiltController();
+        this.navController      = new SmoothNavigationController();
+        this.spaceController    = new SpaceEffectsController('space-canvas');
+        this.emailController    = new ContactEmailController();
+      }
+
+      splitHeroBioLetters() {
+        document.querySelectorAll('.hero-bio').forEach((bio) => {
+          if (bio.dataset.lettersSplit === 'true') return;
+
+          const walker = document.createTreeWalker(bio, NodeFilter.SHOW_TEXT);
+          const textNodes = [];
+          while (walker.nextNode()) {
+            if (!walker.currentNode.parentElement.closest('svg')) {
+              textNodes.push(walker.currentNode);
+            }
+          }
+
+          textNodes.forEach((textNode) => {
+            const fragment = document.createDocumentFragment();
+            textNode.textContent.split(/(\s+)/).forEach((segment) => {
+              if (!segment) return;
+              if (/^\s+$/.test(segment)) {
+                fragment.appendChild(document.createTextNode(' '));
+                return;
+              }
+
+              const word = document.createElement('span');
+              word.className = 'bio-word';
+              Array.from(segment).forEach((character) => {
+                const letter = document.createElement('span');
+                letter.className = 'bio-letter';
+                letter.setAttribute('aria-hidden', 'true');
+                letter.textContent = character;
+                word.appendChild(letter);
+              });
+              fragment.appendChild(word);
+            });
+            textNode.replaceWith(fragment);
+          });
+
+          bio.dataset.lettersSplit = 'true';
+          bio.setAttribute('aria-label', bio.textContent);
+        });
+      }
+
+      start() {
+        this.splitHeroBioLetters();
+        this.gradientController.init();
+        this.revealController.init();
+        this.tiltController.init();
+        this.navController.init();
+        this.spaceController.init();
+        this.emailController.init();
+      }
+    }
+
+    // Initialize application when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => new PortfolioApp().start());
+    } else {
+      new PortfolioApp().start();
+    }
+  </script>
+
+</body>
+</html>
